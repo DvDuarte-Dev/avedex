@@ -1,0 +1,15 @@
+# AveDex
+
+Catálogo interativo de aves desenvolvido na disciplina de Boas Práticas de Programação.
+
+## Funcionalidades atuais
+
+- Menu em repetição
+- Mensagem personalizada
+- Apresentação inicial de uma ave
+- Tratamento de opção inválida
+
+## Como executar
+
+```bash
+python avedex.py
