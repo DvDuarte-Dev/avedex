@@ -50,6 +50,35 @@ python avedex.py
 
 # Commit 5
 
+## Atualização na lista de aves e ajustes
+
 - Ampliação do catálogo
 - Inclusão de novas aves
 - Total de 5 aves cadastradas
+
+# Commit 6
+
+## Boas práticas aplicadas
+
+- Responsabilidade única
+- Padronização dos dados
+- Uso de funções
+- Commits pequenos
+- Documentação contínua
+
+## Testes manuais realizados
+
+- [x] Listagem das aves
+- [x] Consulta de código existente
+- [x] Consulta de código inexistente
+- [x] Tratamento de opção inválida
+- [x] Retorno ao menu
+- [x] Encerramento do programa
+
+## Fontes dos dados
+
+- https://www.wikiaves.com.br
+
+## Evolução do projeto
+
+A AveDex evoluiu de um programa simples baseado em menus para um catálogo organizado utilizando listas, dicionários e funções.
