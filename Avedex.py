@@ -85,6 +85,22 @@ catalogo_aves = [
         "habitat": "Campos, cidades e áreas rurais",
         "alimentacao": "Insetos e outros pequenos invertebrados",
         "curiosidade": "Constrói um ninho de barro característico."
+    },
+    {
+        "codigo": "4",
+        "nome_popular": "Sabiá-laranjeira",
+        "nome_cientifico": "Turdus rufiventris",
+        "habitat": "Jardins, parques e áreas arborizadas",
+        "alimentacao": "Frutas, insetos e minhocas",
+        "curiosidade": "É considerada a ave símbolo do Brasil."
+    },
+    {
+        "codigo": "5",
+        "nome_popular": "Tucano-toco",
+        "nome_cientifico": "Ramphastos toco",
+        "habitat": "Cerrado, matas abertas e regiões arborizadas",
+        "alimentacao": "Frutas, ovos e pequenos animais",
+        "curiosidade": "Possui um dos maiores bicos entre as aves."
     }
 ]
 

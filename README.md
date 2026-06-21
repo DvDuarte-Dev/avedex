@@ -24,7 +24,7 @@ python avedex.py
 - Separação de responsabilidades
 - Melhor organização e manutenção
 
-# commit 3
+# Commit 3
 
 ## Funcionalidades atuais
 
@@ -35,7 +35,7 @@ python avedex.py
 - Catálogo organizado em lista de dicionários
 - Listagem automática das aves cadastradas
 
-# commit 4
+# Commit 4
 
 ## Funcionalidades atuais
 
@@ -47,3 +47,9 @@ python avedex.py
 - Busca de aves por código
 - Exibição detalhada das informações
 - Separação entre busca e apresentação
+
+# Commit 5
+
+- Ampliação do catálogo
+- Inclusão de novas aves
+- Total de 5 aves cadastradas
