@@ -20,8 +20,23 @@ python avedex.py
 
 ## Evolução do projeto
 
-### Versão 2
+## Versão 2
 
 - Código reorganizado em funções
 - Separação de responsabilidades
 - Melhor organização e manutenção
+
+# commit 3
+
+## Funcionalidades atuais
+
+- Menu interativo
+- Listagem de aves
+- Mensagem personalizada
+- Tratamento de opção inválida
+
+## Conteúdos praticados
+
+- Funções
+- Listas
+- Dicionários
