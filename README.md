@@ -15,3 +15,13 @@ Catálogo interativo de aves desenvolvido na disciplina de Boas Práticas de Pro
 
 ```bash
 python avedex.py
+```
+# Commit 2
+
+## Evolução do projeto
+
+### Versão 2
+
+- Código reorganizado em funções
+- Separação de responsabilidades
+- Melhor organização e manutenção
