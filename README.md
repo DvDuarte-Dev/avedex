@@ -20,8 +20,6 @@ python avedex.py
 
 ## Evolução do projeto
 
-## Versão 2
-
 - Código reorganizado em funções
 - Separação de responsabilidades
 - Melhor organização e manutenção
@@ -34,9 +32,18 @@ python avedex.py
 - Listagem de aves
 - Mensagem personalizada
 - Tratamento de opção inválida
+- Catálogo organizado em lista de dicionários
+- Listagem automática das aves cadastradas
 
-## Conteúdos praticados
+# commit 4
 
-- Funções
-- Listas
-- Dicionários
+## Funcionalidades atuais
+
+- Menu interativo
+- Listagem de aves
+- Consulta de aves por código
+- Exibição de detalhes
+- Tratamento de opção inválida
+- Busca de aves por código
+- Exibição detalhada das informações
+- Separação entre busca e apresentação
