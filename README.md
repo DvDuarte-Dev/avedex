@@ -75,6 +75,39 @@ python avedex.py
 - [x] Retorno ao menu
 - [x] Encerramento do programa
 
+# Commit 7
+
+## Atualização da navegação da AveDex
+
+- Seleção de aves por ID
+- Exibição detalhada das informações
+- Inclusão de novas aves no catálogo
+- Uso da função selecionar_ave_por_id
+- Tratamento de ID inexistente
+
+## Funcionalidades atuais
+
+- Menu interativo
+- Mensagem personalizada
+- Listagem de aves
+- Consulta de aves por ID
+- Exibição detalhada das informações
+- Tratamento de opção inválida
+- Catálogo organizado em lista de dicionários
+- Separação entre listagem e detalhes
+
+## Testes manuais realizados
+
+- [x] Listagem das aves
+- [x] Seleção de ave por ID existente
+- [x] Seleção de ave por ID inexistente
+- [x] Tratamento de opção inválida
+- [x] Encerramento do programa
+
+## Evolução do projeto
+
+Nesta etapa, a AveDex passou a separar a listagem resumida da exibição completa das informações das aves. O código foi reorganizado utilizando funções específicas para busca, seleção e apresentação dos dados, tornando a manutenção e a expansão do projeto mais simples.
+
 ## Fontes dos dados
 
 - https://www.wikiaves.com.br

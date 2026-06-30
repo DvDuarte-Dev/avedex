@@ -2,6 +2,10 @@ def exibir_linha():
     print("=" * 50)
 
 
+def pausar():
+    input("\nPressione ENTER para voltar ao menu...")
+
+
 def exibir_menu():
     print()
     exibir_linha()
@@ -27,43 +31,62 @@ def listar_aves(catalogo):
     exibir_linha()
 
     for ave in catalogo:
-        print(f"{ave['codigo']} - {ave['nome_popular']}")
+        print(f"{ave['id']} - {ave['nome_popular']}")
 
 
-def buscar_ave_por_codigo(catalogo, codigo_procurado):
+def buscar_ave_por_id(catalogo, id_procurado):
     for ave in catalogo:
-        if ave["codigo"] == codigo_procurado:
+        if str(ave["id"]) == id_procurado:
             return ave
 
     return None
 
 
-def exibir_detalhes(ave):
+def exibir_detalhes_ave(ave):
     print()
     exibir_linha()
     print("DETALHES DA AVE")
     exibir_linha()
 
+    print(f"ID: {ave['id']}")
     print(f"Nome popular: {ave['nome_popular']}")
     print(f"Nome científico: {ave['nome_cientifico']}")
     print(f"Habitat: {ave['habitat']}")
     print(f"Alimentação: {ave['alimentacao']}")
-    print(f"Curiosidade: {ave['curiosidade']}")
+    print(
+        f"Curiosidade: "
+        f"{ave.get('curiosidade', 'Não informada')}"
+    )
+
+
+def selecionar_ave_por_id(catalogo):
+    listar_aves(catalogo)
+
+    id_escolhido = input(
+        "\nDigite o ID da ave: "
+    ).strip()
+
+    ave_encontrada = buscar_ave_por_id(
+        catalogo,
+        id_escolhido
+    )
+
+    if ave_encontrada is None:
+        print("Ave não encontrada. Confira o ID informado.")
+    else:
+        exibir_detalhes_ave(ave_encontrada)
 
 
 def mostrar_sobre():
     print("Sobre a AveDex:")
     print("A AveDex é um catálogo interativo de aves.")
     print("O projeto evolui durante a disciplina de Boas Práticas.")
-
-
-def pausar():
-    input("\nPressione ENTER para voltar ao menu...")
+    print("Futuramente teremos busca, comparação e testes.")
 
 
 catalogo_aves = [
     {
-        "codigo": "1",
+        "id": 1,
         "nome_popular": "Bem-te-vi",
         "nome_cientifico": "Pitangus sulphuratus",
         "habitat": "Áreas abertas, cidades e bordas de florestas",
@@ -71,7 +94,7 @@ catalogo_aves = [
         "curiosidade": "Seu canto lembra a expressão bem-te-vi."
     },
     {
-        "codigo": "2",
+        "id": 2,
         "nome_popular": "Canário-da-terra",
         "nome_cientifico": "Sicalis flaveola",
         "habitat": "Campos, áreas abertas e ambientes rurais",
@@ -79,7 +102,7 @@ catalogo_aves = [
         "curiosidade": "O macho possui plumagem amarela intensa."
     },
     {
-        "codigo": "3",
+        "id": 3,
         "nome_popular": "João-de-barro",
         "nome_cientifico": "Furnarius rufus",
         "habitat": "Campos, cidades e áreas rurais",
@@ -87,7 +110,7 @@ catalogo_aves = [
         "curiosidade": "Constrói um ninho de barro característico."
     },
     {
-        "codigo": "4",
+        "id": 4,
         "nome_popular": "Sabiá-laranjeira",
         "nome_cientifico": "Turdus rufiventris",
         "habitat": "Jardins, parques e áreas arborizadas",
@@ -95,27 +118,49 @@ catalogo_aves = [
         "curiosidade": "É considerada a ave símbolo do Brasil."
     },
     {
-        "codigo": "5",
+        "id": 5,
         "nome_popular": "Tucano-toco",
         "nome_cientifico": "Ramphastos toco",
         "habitat": "Cerrado, matas abertas e regiões arborizadas",
         "alimentacao": "Frutas, ovos e pequenos animais",
         "curiosidade": "Possui um dos maiores bicos entre as aves."
+    },
+    {
+        "id": 6,
+        "nome_popular": "Arara-azul",
+        "nome_cientifico": "Anodorhynchus hyacinthinus",
+        "habitat": "Pantanal e Cerrado",
+        "alimentacao": "Frutas e sementes",
+        "curiosidade": "É a maior espécie de arara do mundo."
+    },
+    {
+        "id": 7,
+        "nome_popular": "Coruja-buraqueira",
+        "nome_cientifico": "Athene cunicularia",
+        "habitat": "Campos e áreas abertas",
+        "alimentacao": "Insetos e pequenos vertebrados",
+        "curiosidade": "Costuma viver em tocas no chão."
     }
 ]
 
+
 exibir_linha()
-print(" AVEDEX")
+print("AVEDEX")
 exibir_linha()
 
-nome_usuario = input("Digite seu nome: ").strip()
+nome_usuario = input(
+    "Digite seu nome: "
+).strip()
 
 opcao_menu = ""
 
 while opcao_menu != "0":
     exibir_menu()
 
-    opcao_menu = input("Escolha uma opção: ").strip()
+    opcao_menu = input(
+        "Escolha uma opção: "
+    ).strip()
+
     print()
 
     if opcao_menu == "1":
@@ -125,21 +170,7 @@ while opcao_menu != "0":
         listar_aves(catalogo_aves)
 
     elif opcao_menu == "3":
-        listar_aves(catalogo_aves)
-
-        codigo_escolhido = input(
-            "\nDigite o código da ave: "
-        ).strip()
-
-        ave_encontrada = buscar_ave_por_codigo(
-            catalogo_aves,
-            codigo_escolhido
-        )
-
-        if ave_encontrada is not None:
-            exibir_detalhes(ave_encontrada)
-        else:
-            print("Ave não encontrada. Confira o código informado.")
+        selecionar_ave_por_id(catalogo_aves)
 
     elif opcao_menu == "4":
         mostrar_sobre()
@@ -149,7 +180,10 @@ while opcao_menu != "0":
         print(f"Até logo, {nome_usuario}!")
 
     else:
-        print("Opção inválida. Digite apenas 0, 1, 2, 3 ou 4.")
+        print(
+            "Opção inválida. "
+            "Digite apenas 0, 1, 2, 3 ou 4."
+        )
 
     if opcao_menu != "0":
         pausar()
