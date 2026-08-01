@@ -78,6 +78,21 @@ def buscar_aves(catalogo, termo_busca):
 
     return resultados
 
+def exibir_resultados_busca(resultados):
+    print()
+    exibir_linha()
+    print("RESULTADOS DA BUSCA")
+    exibir_linha()
+
+    if len(resultados) == 0:
+        print("Nenhuma ave encontrada.")
+    else:
+        for ave in resultados:
+            print(
+                f"{ave['id']} - {ave['nome_popular']} "
+                f"({ave['familia']}, {ave['dieta_tipo']})"
+            )
+
 def exibir_detalhes_ave(ave):
     print()
     exibir_linha()
