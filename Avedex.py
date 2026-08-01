@@ -93,6 +93,35 @@ def exibir_resultados_busca(resultados):
                 f"({ave['familia']}, {ave['dieta_tipo']})"
             )
 
+def tela_busca(catalogo):
+    termo = input(
+        "Digite parte do nome, família, ordem ou dieta: "
+    ).strip()
+
+    if termo == "":
+        print("Digite algum texto para realizar a busca.")
+        return
+
+    resultados = buscar_aves(catalogo, termo)
+
+    exibir_resultados_busca(resultados)
+
+    if len(resultados) > 0:
+        escolha = input(
+            "\nDigite o ID para ver detalhes ou ENTER para voltar: "
+        ).strip()
+
+        if escolha != "":
+            ave_encontrada = buscar_ave_por_id(
+                resultados,
+                escolha
+            )
+
+            if ave_encontrada is None:
+                print("ID não encontrado nos resultados.")
+            else:
+                exibir_detalhes_ave(ave_encontrada)
+
 def exibir_detalhes_ave(ave):
     print()
     exibir_linha()
