@@ -26,12 +26,11 @@ def exibir_menu():
     exibir_linha()
     print("AVEDEX - MENU PRINCIPAL")
     exibir_linha()
-    print("1 - Ver mensagem de boas-vindas")
-    print("2 - Listar aves")
+    print("1 - Listar aves")
+    print("2 - Buscar ave")
     print("3 - Ver detalhes de uma ave")
     print("4 - Sobre a AveDex")
     print("0 - Sair")
-
 
 def mostrar_boas_vindas(nome_usuario):
     print(f"Olá, {nome_usuario}!")
@@ -264,10 +263,10 @@ while opcao_menu != "0":
     print()
 
     if opcao_menu == "1":
-        mostrar_boas_vindas(nome_usuario)
+        listar_aves(catalogo_aves)
 
     elif opcao_menu == "2":
-        listar_aves(catalogo_aves)
+        tela_busca(catalogo_aves)
 
     elif opcao_menu == "3":
         selecionar_ave_por_id(catalogo_aves)
@@ -278,7 +277,7 @@ while opcao_menu != "0":
     elif opcao_menu == "0":
         print("Encerrando a AveDex.")
         print(f"Até logo, {nome_usuario}!")
-
+    
     else:
         print(
             "Opção inválida. "
