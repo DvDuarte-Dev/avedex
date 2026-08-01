@@ -89,6 +89,9 @@ catalogo_aves = [
         "id": 1,
         "nome_popular": "Bem-te-vi",
         "nome_cientifico": "Pitangus sulphuratus",
+        "ordem": "Passeriformes",
+        "familia": "Tyrannidae",
+        "dieta_tipo": "Onívora",
         "habitat": "Áreas abertas, cidades e bordas de florestas",
         "alimentacao": "Insetos, frutos e pequenos animais",
         "curiosidade": "Seu canto lembra a expressão bem-te-vi."
@@ -97,6 +100,9 @@ catalogo_aves = [
         "id": 2,
         "nome_popular": "Canário-da-terra",
         "nome_cientifico": "Sicalis flaveola",
+        "ordem": "Passeriformes",
+        "familia": "Thraupidae",
+        "dieta_tipo": "Granívora",
         "habitat": "Campos, áreas abertas e ambientes rurais",
         "alimentacao": "Sementes e pequenos insetos",
         "curiosidade": "O macho possui plumagem amarela intensa."
@@ -105,6 +111,9 @@ catalogo_aves = [
         "id": 3,
         "nome_popular": "João-de-barro",
         "nome_cientifico": "Furnarius rufus",
+        "ordem": "Passeriformes",
+        "familia": "Furnariidae",
+        "dieta_tipo": "Insetívora",
         "habitat": "Campos, cidades e áreas rurais",
         "alimentacao": "Insetos e outros pequenos invertebrados",
         "curiosidade": "Constrói um ninho de barro característico."
@@ -113,6 +122,9 @@ catalogo_aves = [
         "id": 4,
         "nome_popular": "Sabiá-laranjeira",
         "nome_cientifico": "Turdus rufiventris",
+        "ordem": "Passeriformes",
+        "familia": "Turdidae",
+        "dieta_tipo": "Onívora",
         "habitat": "Jardins, parques e áreas arborizadas",
         "alimentacao": "Frutas, insetos e minhocas",
         "curiosidade": "É considerada a ave símbolo do Brasil."
@@ -121,6 +133,9 @@ catalogo_aves = [
         "id": 5,
         "nome_popular": "Tucano-toco",
         "nome_cientifico": "Ramphastos toco",
+        "ordem": "Piciformes",
+        "familia": "Ramphastidae",
+        "dieta_tipo": "Onívora",
         "habitat": "Cerrado, matas abertas e regiões arborizadas",
         "alimentacao": "Frutas, ovos e pequenos animais",
         "curiosidade": "Possui um dos maiores bicos entre as aves."
@@ -129,6 +144,9 @@ catalogo_aves = [
         "id": 6,
         "nome_popular": "Arara-azul",
         "nome_cientifico": "Anodorhynchus hyacinthinus",
+        "ordem": "Psittaciformes",
+        "familia": "Psittacidae",
+        "dieta_tipo": "Granívora",
         "habitat": "Pantanal e Cerrado",
         "alimentacao": "Frutas e sementes",
         "curiosidade": "É a maior espécie de arara do mundo."
@@ -137,12 +155,14 @@ catalogo_aves = [
         "id": 7,
         "nome_popular": "Coruja-buraqueira",
         "nome_cientifico": "Athene cunicularia",
+        "ordem": "Strigiformes",
+        "familia": "Strigidae",
+        "dieta_tipo": "Carnívora",
         "habitat": "Campos e áreas abertas",
         "alimentacao": "Insetos e pequenos vertebrados",
         "curiosidade": "Costuma viver em tocas no chão."
     }
 ]
-
 
 exibir_linha()
 print("AVEDEX")
