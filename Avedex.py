@@ -56,15 +56,24 @@ def buscar_ave_por_id(catalogo, id_procurado):
 
     return None
 
-def buscar_aves_por_nome(catalogo, termo_busca):
+def buscar_aves(catalogo, termo_busca):
     resultados = []
 
     termo = normalizar_texto(termo_busca)
 
     for ave in catalogo:
-        nome = normalizar_texto(ave["nome_popular"])
+        campos_busca = [
+            ave.get("nome_popular", ""),
+            ave.get("nome_cientifico", ""),
+            ave.get("familia", ""),
+            ave.get("ordem", ""),
+            ave.get("dieta_tipo", "")
+        ]
 
-        if termo in nome:
+        texto_busca = " ".join(campos_busca)
+        texto_busca = normalizar_texto(texto_busca)
+
+        if termo in texto_busca:
             resultados.append(ave)
 
     return resultados
