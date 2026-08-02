@@ -174,6 +174,12 @@ catalogo_aves = [
         "familia": "Tyrannidae",
         "dieta_tipo": "Onívora",
         "habitat": "Áreas abertas, cidades e bordas de florestas",
+
+        "comprimento_cm": 23,
+        "peso_g": 68,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Insetos, frutos e pequenos animais",
         "curiosidade": "Seu canto lembra a expressão bem-te-vi."
     },
@@ -185,6 +191,12 @@ catalogo_aves = [
         "familia": "Thraupidae",
         "dieta_tipo": "Granívora",
         "habitat": "Campos, áreas abertas e ambientes rurais",
+
+        "comprimento_cm": 13,
+        "peso_g": 20,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Sementes e pequenos insetos",
         "curiosidade": "O macho possui plumagem amarela intensa."
     },
@@ -196,6 +208,12 @@ catalogo_aves = [
         "familia": "Furnariidae",
         "dieta_tipo": "Insetívora",
         "habitat": "Campos, cidades e áreas rurais",
+
+        "comprimento_cm": 20,
+        "peso_g": 49,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Insetos e outros pequenos invertebrados",
         "curiosidade": "Constrói um ninho de barro característico."
     },
@@ -207,6 +225,12 @@ catalogo_aves = [
         "familia": "Turdidae",
         "dieta_tipo": "Onívora",
         "habitat": "Jardins, parques e áreas arborizadas",
+
+        "comprimento_cm": 25,
+        "peso_g": 77,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Frutas, insetos e minhocas",
         "curiosidade": "É considerada a ave símbolo do Brasil."
     },
@@ -218,6 +242,12 @@ catalogo_aves = [
         "familia": "Ramphastidae",
         "dieta_tipo": "Onívora",
         "habitat": "Cerrado, matas abertas e regiões arborizadas",
+
+        "comprimento_cm": 61,
+        "peso_g": 650,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Frutas, ovos e pequenos animais",
         "curiosidade": "Possui um dos maiores bicos entre as aves."
     },
@@ -229,6 +259,12 @@ catalogo_aves = [
         "familia": "Psittacidae",
         "dieta_tipo": "Granívora",
         "habitat": "Pantanal e Cerrado",
+
+        "comprimento_cm": 100,
+        "peso_g": 1400,
+        "status_conservacao": "Vulnerável",
+        "indice_conservacao": 3,
+
         "alimentacao": "Frutas e sementes",
         "curiosidade": "É a maior espécie de arara do mundo."
     },
@@ -240,6 +276,12 @@ catalogo_aves = [
         "familia": "Strigidae",
         "dieta_tipo": "Carnívora",
         "habitat": "Campos e áreas abertas",
+
+        "comprimento_cm": 24,
+        "peso_g": 170,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Insetos e pequenos vertebrados",
         "curiosidade": "Costuma viver em tocas no chão."
     },
@@ -251,6 +293,12 @@ catalogo_aves = [
         "familia": "Trochilidae",
         "dieta_tipo": "Nectarívora",
         "habitat": "Jardins, matas e áreas urbanas",
+
+        "comprimento_cm": 16,
+        "peso_g": 7,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Néctar e pequenos insetos",
         "curiosidade": "Pode bater as asas mais de 50 vezes por segundo."
     },
@@ -262,6 +310,12 @@ catalogo_aves = [
         "familia": "Ardeidae",
         "dieta_tipo": "Carnívora",
         "habitat": "Lagos, rios e áreas alagadas",
+
+        "comprimento_cm": 98,
+        "peso_g": 1000,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
         "alimentacao": "Peixes, anfíbios e pequenos animais",
         "curiosidade": "É uma excelente pescadora e caça parada na água."
     }
