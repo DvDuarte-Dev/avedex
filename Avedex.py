@@ -19,6 +19,16 @@ def valor_ou_indisponivel(valor):
 
     return valor
 
+def imprimir_linha_comparacao(rotulo, valor1, valor2):
+    valor1 = valor_ou_indisponivel(valor1)
+    valor2 = valor_ou_indisponivel(valor2)
+
+    print(
+        f"{rotulo:<25}"
+        f"{str(valor1):<25}"
+        f"{str(valor2):<25}"
+    )
+
 def exibir_linha():
     print("=" * 50)
 
