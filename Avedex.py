@@ -83,6 +83,8 @@ def exibir_resultados_busca(resultados):
     print("RESULTADOS DA BUSCA")
     exibir_linha()
 
+    print(f"Foram encontradas {len(resultados)} ave(s).\n")
+
     if len(resultados) == 0:
         print("Nenhuma ave encontrada.")
     else:
@@ -240,6 +242,28 @@ catalogo_aves = [
         "habitat": "Campos e áreas abertas",
         "alimentacao": "Insetos e pequenos vertebrados",
         "curiosidade": "Costuma viver em tocas no chão."
+    },
+    {
+        "id": 8,
+        "nome_popular": "Beija-flor-tesoura",
+        "nome_cientifico": "Eupetomena macroura",
+        "ordem": "Apodiformes",
+        "familia": "Trochilidae",
+        "dieta_tipo": "Nectarívora",
+        "habitat": "Jardins, matas e áreas urbanas",
+        "alimentacao": "Néctar e pequenos insetos",
+        "curiosidade": "Pode bater as asas mais de 50 vezes por segundo."
+    },
+    {
+        "id": 9,
+        "nome_popular": "Garça-branca-grande",
+        "nome_cientifico": "Ardea alba",
+        "ordem": "Pelecaniformes",
+        "familia": "Ardeidae",
+        "dieta_tipo": "Carnívora",
+        "habitat": "Lagos, rios e áreas alagadas",
+        "alimentacao": "Peixes, anfíbios e pequenos animais",
+        "curiosidade": "É uma excelente pescadora e caça parada na água."
     }
 ]
 
