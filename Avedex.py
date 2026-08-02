@@ -13,6 +13,12 @@ def normalizar_texto(texto):
 
     return texto
 
+def valor_ou_indisponivel(valor):
+    if valor is None:
+        return "Indisponível"
+
+    return valor
+
 def exibir_linha():
     print("=" * 50)
 
