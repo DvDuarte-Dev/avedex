@@ -112,7 +112,7 @@ def tela_comparacao(catalogo):
         return
 
     comparar_aves(ave1, ave2)
-    
+
 def exibir_linha():
     print("=" * 50)
 
@@ -129,7 +129,8 @@ def exibir_menu():
     print("1 - Listar aves")
     print("2 - Buscar ave")
     print("3 - Ver detalhes de uma ave")
-    print("4 - Sobre a AveDex")
+    print("4 - Comparar aves")
+    print("5 - Sobre a AveDex")
     print("0 - Sair")
 
 def mostrar_boas_vindas(nome_usuario):
@@ -455,7 +456,7 @@ while opcao_menu != "0":
     ).strip()
 
     print()
-
+    
     if opcao_menu == "1":
         listar_aves(catalogo_aves)
 
@@ -466,6 +467,9 @@ while opcao_menu != "0":
         selecionar_ave_por_id(catalogo_aves)
 
     elif opcao_menu == "4":
+        tela_comparacao(catalogo_aves)
+
+    elif opcao_menu == "5":
         mostrar_sobre()
 
     elif opcao_menu == "0":
@@ -475,7 +479,7 @@ while opcao_menu != "0":
     else:
         print(
             "Opção inválida. "
-            "Digite apenas 0, 1, 2, 3 ou 4."
+            "Digite apenas 0, 1, 2, 3, 4 ou 5."
         )
 
     if opcao_menu != "0":
