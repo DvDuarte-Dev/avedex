@@ -85,6 +85,34 @@ def comparar_aves(ave1, ave2):
         ave2.get("status_conservacao")
     )
 
+def tela_comparacao(catalogo):
+    print()
+    exibir_linha()
+    print("COMPARAÇÃO DE AVES")
+    exibir_linha()
+
+    ave1 = escolher_ave(
+        catalogo,
+        "Digite o ID da primeira ave"
+    )
+
+    if ave1 is None:
+        return
+
+    ave2 = escolher_ave(
+        catalogo,
+        "Digite o ID da segunda ave"
+    )
+
+    if ave2 is None:
+        return
+
+    if ave1["id"] == ave2["id"]:
+        print("Escolha duas aves diferentes.")
+        return
+
+    comparar_aves(ave1, ave2)
+    
 def exibir_linha():
     print("=" * 50)
 
@@ -228,6 +256,22 @@ def selecionar_ave_por_id(catalogo):
         print("Ave não encontrada. Confira o ID informado.")
     else:
         exibir_detalhes_ave(ave_encontrada)
+
+def escolher_ave(catalogo, mensagem):
+    listar_aves(catalogo)
+
+    id_escolhido = input(f"\n{mensagem}: ").strip()
+
+    ave_encontrada = buscar_ave_por_id(
+        catalogo,
+        id_escolhido
+    )
+
+    if ave_encontrada is None:
+        print("Ave não encontrada. Confira o ID informado.")
+        return None
+
+    return ave_encontrada
 
 
 def mostrar_sobre():
