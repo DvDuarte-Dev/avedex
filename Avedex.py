@@ -85,6 +85,24 @@ def comparar_aves(ave1, ave2):
         ave2.get("status_conservacao")
     )
 
+    print()
+    exibir_linha()
+
+    if ave1["peso_g"] > ave2["peso_g"]:
+        print(
+            f"{ave1['nome_popular']} é mais pesada que "
+            f"{ave2['nome_popular']}."
+        )
+
+    elif ave2["peso_g"] > ave1["peso_g"]:
+        print(
+            f"{ave2['nome_popular']} é mais pesada que "
+            f"{ave1['nome_popular']}."
+        )
+
+    else:
+        print("As duas aves possuem o mesmo peso.")
+
 def tela_comparacao(catalogo):
     print()
     exibir_linha()
