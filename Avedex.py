@@ -29,6 +29,62 @@ def imprimir_linha_comparacao(rotulo, valor1, valor2):
         f"{str(valor2):<25}"
     )
 
+def comparar_aves(ave1, ave2):
+    print()
+    exibir_linha()
+    print("COMPARAÇÃO DE AVES")
+    exibir_linha()
+
+    print(
+        f"{'Característica':<25}"
+        f"{ave1['nome_popular']:<25}"
+        f"{ave2['nome_popular']:<25}"
+    )
+
+    print("-" * 75)
+
+    imprimir_linha_comparacao(
+        "Nome científico",
+        ave1.get("nome_cientifico"),
+        ave2.get("nome_cientifico")
+    )
+
+    imprimir_linha_comparacao(
+        "Família",
+        ave1.get("familia"),
+        ave2.get("familia")
+    )
+
+    imprimir_linha_comparacao(
+        "Ordem",
+        ave1.get("ordem"),
+        ave2.get("ordem")
+    )
+
+    imprimir_linha_comparacao(
+        "Dieta",
+        ave1.get("dieta_tipo"),
+        ave2.get("dieta_tipo")
+    )
+
+    imprimir_linha_comparacao(
+        "Comprimento (cm)",
+        ave1.get("comprimento_cm"),
+        ave2.get("comprimento_cm")
+    )
+
+    imprimir_linha_comparacao(
+        "Peso (g)",
+        ave1.get("peso_g"),
+        ave2.get("peso_g")
+    )
+
+    imprimir_linha_comparacao(
+        "Status",
+        ave1.get("status_conservacao"),
+        ave2.get("status_conservacao")
+    )
+
 def exibir_linha():
     print("=" * 50)
 
