@@ -34,10 +34,7 @@ def imprimir_linha_comparacao(rotulo, valor1, valor2):
     )
 
 def comparar_aves(ave1, ave2):
-    print()
-    exibir_linha()
-    print("COMPARAÇÃO DE AVES")
-    exibir_linha()
+    exibir_titulo("COMPARAÇÃO DE AVES")
 
     print(
         f"{'Característica':<{LARGURA_COLUNA}}"
@@ -108,10 +105,7 @@ def comparar_aves(ave1, ave2):
         print("As duas aves possuem o mesmo peso.")
 
 def tela_comparacao(catalogo):
-    print()
-    exibir_linha()
-    print("COMPARAÇÃO DE AVES")
-    exibir_linha()
+    exibir_titulo("COMPARAÇÃO DE AVES")
 
     ave1 = escolher_ave(
         catalogo,
@@ -138,16 +132,18 @@ def tela_comparacao(catalogo):
 def exibir_linha():
     print("=" * TAMANHO_LINHA)
 
+def exibir_titulo(titulo):
+    print()
+    exibir_linha()
+    print(titulo)
+    exibir_linha()
 
 def pausar():
     input("\nPressione ENTER para voltar ao menu...")
 
 
 def exibir_menu():
-    print()
-    exibir_linha()
-    print("AVEDEX - MENU PRINCIPAL")
-    exibir_linha()
+    exibir_titulo("AVEDEX - MENU PRINCIPAL")
     print("1 - Listar aves")
     print("2 - Buscar ave")
     print("3 - Ver detalhes de uma ave")
@@ -162,10 +158,7 @@ def mostrar_boas_vindas(nome_usuario):
 
 
 def listar_aves(catalogo):
-    print()
-    exibir_linha()
-    print("AVES CADASTRADAS")
-    exibir_linha()
+    exibir_titulo("AVES CADASTRADAS")
 
     for ave in catalogo:
         print(f"{ave['id']} - {ave['nome_popular']}")
@@ -201,10 +194,7 @@ def buscar_aves(catalogo, termo_busca):
     return resultados
 
 def exibir_resultados_busca(resultados):
-    print()
-    exibir_linha()
-    print("RESULTADOS DA BUSCA")
-    exibir_linha()
+    exibir_titulo("RESULTADOS DA BUSCA")
 
     print(f"Foram encontradas {len(resultados)} ave(s).\n")
 
@@ -247,10 +237,7 @@ def tela_busca(catalogo):
                 exibir_detalhes_ave(ave_encontrada)
 
 def exibir_detalhes_ave(ave):
-    print()
-    exibir_linha()
-    print("DETALHES DA AVE")
-    exibir_linha()
+    exibir_titulo("DETALHES DA AVE")
 
     print(f"ID: {ave['id']}")
     print(f"Nome popular: {ave['nome_popular']}")
