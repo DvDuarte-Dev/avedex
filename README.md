@@ -68,6 +68,19 @@ O projeto foi organizado utilizando funções específicas para cada responsabil
 
 Essa organização facilita a manutenção e futuras melhorias.
 
+## Testes de regressão
+
+- [ ] Listar aves
+- [ ] Buscar por parte do nome
+- [ ] Buscar por família
+- [ ] Buscar por ordem
+- [ ] Buscar por dieta
+- [ ] Ver detalhes por ID
+- [ ] Comparar duas aves
+- [ ] Tratar ID inexistente
+- [ ] Tratar opção inválida no menu
+- [ ] Encerrar o programa
+
 ## Testes manuais realizados
 
 - [x] Listagem das aves
