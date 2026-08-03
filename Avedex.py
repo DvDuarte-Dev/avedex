@@ -1,5 +1,9 @@
 import unicodedata
 
+LARGURA_COLUNA = 25
+TAMANHO_LINHA = 50
+TAMANHO_SEPARADOR = 75
+
 def normalizar_texto(texto):
     texto = str(texto)
     texto = texto.lower().strip()
@@ -24,9 +28,9 @@ def imprimir_linha_comparacao(rotulo, valor1, valor2):
     valor2 = valor_ou_indisponivel(valor2)
 
     print(
-        f"{rotulo:<25}"
-        f"{str(valor1):<25}"
-        f"{str(valor2):<25}"
+        f"{rotulo:<{LARGURA_COLUNA}}"
+        f"{str(valor1):<{LARGURA_COLUNA}}"
+        f"{str(valor2):<{LARGURA_COLUNA}}"
     )
 
 def comparar_aves(ave1, ave2):
@@ -36,12 +40,12 @@ def comparar_aves(ave1, ave2):
     exibir_linha()
 
     print(
-        f"{'Característica':<25}"
-        f"{ave1['nome_popular']:<25}"
-        f"{ave2['nome_popular']:<25}"
+        f"{'Característica':<{LARGURA_COLUNA}}"
+        f"{ave1['nome_popular']:<{LARGURA_COLUNA}}"
+        f"{ave2['nome_popular']:<{LARGURA_COLUNA}}"
     )
 
-    print("-" * 75)
+    print("-" * TAMANHO_SEPARADOR)
 
     imprimir_linha_comparacao(
         "Nome científico",
@@ -132,7 +136,7 @@ def tela_comparacao(catalogo):
     comparar_aves(ave1, ave2)
 
 def exibir_linha():
-    print("=" * 50)
+    print("=" * TAMANHO_LINHA)
 
 
 def pausar():
