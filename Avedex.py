@@ -4,6 +4,17 @@ LARGURA_COLUNA = 25
 TAMANHO_LINHA = 50
 TAMANHO_SEPARADOR = 75
 
+CAMPOS_COMPARACAO = [
+    ("Nome científico", "nome_cientifico", ""),
+    ("Família", "familia", ""),
+    ("Ordem", "ordem", ""),
+    ("Dieta", "dieta_tipo", ""),
+    ("Habitat", "habitat", ""),
+    ("Comprimento (cm)", "comprimento_cm", "cm"),
+    ("Peso (g)", "peso_g", "g"),
+    ("Status", "status_conservacao", ""),
+]
+
 def normalizar_texto(texto):
     texto = str(texto)
     texto = texto.lower().strip()
@@ -17,11 +28,33 @@ def normalizar_texto(texto):
 
     return texto
 
-def valor_ou_indisponivel(valor):
+def valor_ou_indisponivel(valor, unidade=""):
     if valor is None:
-        return "Indisponível"
+        return "Não informado"
 
-    return valor
+    if unidade != "":
+        return f"{valor} {unidade}"
+
+    return str(valor)
+
+def cortar_texto(texto, tamanho=25):
+    if texto is None:
+        return "Não informado"
+
+    texto = str(texto).strip()
+
+    if len(texto) <= tamanho:
+        return texto
+
+    return texto[: tamanho - 3] + "..."
+
+def preparar_valor_comparacao(ave, campo, unidade):
+    valor = ave.get(campo)
+
+    if campo == "habitat":
+        return cortar_texto(valor, 25)
+
+    return valor_ou_indisponivel(valor, unidade)
 
 def imprimir_linha_comparacao(rotulo, valor1, valor2):
     valor1 = valor_ou_indisponivel(valor1)
@@ -44,23 +77,16 @@ def comparar_aves(ave1, ave2):
 
     print("-" * TAMANHO_SEPARADOR)
 
-    campos = [
-        ("Nome científico", "nome_cientifico"),
-        ("Família", "familia"),
-        ("Ordem", "ordem"),
-        ("Dieta", "dieta_tipo"),
-        ("Comprimento (cm)", "comprimento_cm"),
-        ("Peso (g)", "peso_g"),
-        ("Status", "status_conservacao")
-    ]
+    for rotulo, campo, unidade in CAMPOS_COMPARACAO:
+        valor1 = preparar_valor_comparacao(ave1, campo, unidade)
+        valor2 = preparar_valor_comparacao(ave2, campo, unidade)
 
-    for titulo, chave in campos:
         imprimir_linha_comparacao(
-            titulo,
-            ave1.get(chave),
-            ave2.get(chave)
+            rotulo,
+            valor1,
+            valor2
         )
-    
+
     print()
     exibir_linha()
 
