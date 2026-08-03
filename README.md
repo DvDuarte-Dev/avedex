@@ -21,9 +21,11 @@ Catálogo interativo de aves desenvolvido na disciplina de Boas Práticas de Pro
   - Família
   - Ordem
   - Tipo de dieta
+  - Habitat
   - Comprimento
   - Peso
   - Status de conservação
+- Corte automático de textos longos na comparação
 - Indicação de qual ave é mais pesada
 - Tratamento de valores indisponíveis
 - Tratamento de entradas inválidas
@@ -56,7 +58,7 @@ python avedex.py
 
 ## Estrutura do projeto
 
-O projeto foi organizado utilizando funções específicas para cada responsabilidade, como:
+O projeto foi organizado utilizando funções específicas para cada responsabilidade:
 
 - listagem de aves;
 - busca por ID;
@@ -64,22 +66,24 @@ O projeto foi organizado utilizando funções específicas para cada responsabil
 - comparação entre aves;
 - exibição dos resultados;
 - exibição dos detalhes da ave;
-- controle do menu principal.
+- controle do menu principal;
+- funções auxiliares para comparação;
+- constantes para configuração da aplicação.
 
-Essa organização facilita a manutenção e futuras melhorias.
+A organização do código facilita a manutenção, reduz repetições e prepara o projeto para futura separação em módulos.
 
 ## Testes de regressão
 
-- [ ] Listar aves
-- [ ] Buscar por parte do nome
-- [ ] Buscar por família
-- [ ] Buscar por ordem
-- [ ] Buscar por dieta
-- [ ] Ver detalhes por ID
-- [ ] Comparar duas aves
-- [ ] Tratar ID inexistente
-- [ ] Tratar opção inválida no menu
-- [ ] Encerrar o programa
+- [x] Listar aves
+- [x] Buscar por parte do nome
+- [x] Buscar por família
+- [x] Buscar por ordem
+- [x] Buscar por dieta
+- [x] Ver detalhes por ID
+- [x] Comparar duas aves
+- [x] Tratar ID inexistente
+- [x] Tratar opção inválida no menu
+- [x] Encerrar o programa
 
 ## Testes manuais realizados
 
@@ -99,6 +103,7 @@ Essa organização facilita a manutenção e futuras melhorias.
 - [x] Comparação da mesma ave
 - [x] Comparação com ID inexistente
 - [x] Exibição da ave mais pesada
+- [x] Tratamento de textos longos na comparação
 - [x] Tratamento de opção inválida
 - [x] Encerramento do programa
 
@@ -116,17 +121,18 @@ Essa organização facilita a manutenção e futuras melhorias.
 
 ## Comparação entre aves
 
-O sistema permite selecionar duas aves do catálogo e comparar lado a lado suas principais características, como:
+O sistema permite selecionar duas aves do catálogo e comparar lado a lado:
 
 - Nome científico
 - Família
 - Ordem
 - Tipo de dieta
+- Habitat
 - Comprimento
 - Peso
 - Status de conservação
 
-Ao final da comparação, o programa informa qual das aves é mais pesada.
+Durante a comparação, habitats muito longos são abreviados automaticamente para manter a tabela organizada. Ao final, o programa informa qual das aves é mais pesada.
 
 ## Fontes dos dados
 
