@@ -44,48 +44,23 @@ def comparar_aves(ave1, ave2):
 
     print("-" * TAMANHO_SEPARADOR)
 
-    imprimir_linha_comparacao(
-        "Nome científico",
-        ave1.get("nome_cientifico"),
-        ave2.get("nome_cientifico")
-    )
+    campos = [
+        ("Nome científico", "nome_cientifico"),
+        ("Família", "familia"),
+        ("Ordem", "ordem"),
+        ("Dieta", "dieta_tipo"),
+        ("Comprimento (cm)", "comprimento_cm"),
+        ("Peso (g)", "peso_g"),
+        ("Status", "status_conservacao")
+    ]
 
-    imprimir_linha_comparacao(
-        "Família",
-        ave1.get("familia"),
-        ave2.get("familia")
-    )
-
-    imprimir_linha_comparacao(
-        "Ordem",
-        ave1.get("ordem"),
-        ave2.get("ordem")
-    )
-
-    imprimir_linha_comparacao(
-        "Dieta",
-        ave1.get("dieta_tipo"),
-        ave2.get("dieta_tipo")
-    )
-
-    imprimir_linha_comparacao(
-        "Comprimento (cm)",
-        ave1.get("comprimento_cm"),
-        ave2.get("comprimento_cm")
-    )
-
-    imprimir_linha_comparacao(
-        "Peso (g)",
-        ave1.get("peso_g"),
-        ave2.get("peso_g")
-    )
-
-    imprimir_linha_comparacao(
-        "Status",
-        ave1.get("status_conservacao"),
-        ave2.get("status_conservacao")
-    )
-
+    for titulo, chave in campos:
+        imprimir_linha_comparacao(
+            titulo,
+            ave1.get(chave),
+            ave2.get(chave)
+        )
+    
     print()
     exibir_linha()
 
@@ -239,7 +214,7 @@ def tela_busca(catalogo):
     exibir_resultados_busca(resultados)
 
     if len(resultados) > 0:
-    selecionar_resultado_busca(resultados)
+        selecionar_resultado_busca(resultados)
 
 def exibir_detalhes_ave(ave):
     exibir_titulo("DETALHES DA AVE")
