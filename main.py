@@ -1,7 +1,4 @@
-import unicodedata
-
 LARGURA_COLUNA = 25
-TAMANHO_LINHA = 50
 TAMANHO_SEPARADOR = 75
 
 CAMPOS_COMPARACAO = [
@@ -15,38 +12,32 @@ CAMPOS_COMPARACAO = [
     ("Status", "status_conservacao", ""),
 ]
 
-def normalizar_texto(texto):
-    texto = str(texto)
-    texto = texto.lower().strip()
+from src.avedex.catalogo import (
+    listar_aves,
+    buscar_ave_por_id,
+    buscar_aves,
+    exibir_resultados_busca,
+    selecionar_resultado_busca,
+    tela_busca,
+    exibir_detalhes_ave,
+    selecionar_ave_por_id,
+    escolher_ave,
+)
 
-    texto = unicodedata.normalize("NFD", texto)
+from src.avedex.interface import (
+    exibir_linha,
+    exibir_titulo,
+    pausar,
+    exibir_menu,
+    mostrar_boas_vindas,
+    mostrar_sobre,
+)
 
-    texto = "".join(
-        caractere for caractere in texto
-        if unicodedata.category(caractere) != "Mn"
-    )
-
-    return texto
-
-def valor_ou_indisponivel(valor, unidade=""):
-    if valor is None:
-        return "Não informado"
-
-    if unidade != "":
-        return f"{valor} {unidade}"
-
-    return str(valor)
-
-def cortar_texto(texto, tamanho=25):
-    if texto is None:
-        return "Não informado"
-
-    texto = str(texto).strip()
-
-    if len(texto) <= tamanho:
-        return texto
-
-    return texto[: tamanho - 3] + "..."
+from src.avedex.utils import (
+    normalizar_texto,
+    valor_ou_indisponivel,
+    cortar_texto,
+)
 
 def preparar_valor_comparacao(ave, campo, unidade):
     valor = ave.get(campo)
@@ -129,169 +120,6 @@ def tela_comparacao(catalogo):
         return
 
     comparar_aves(ave1, ave2)
-
-def exibir_linha():
-    print("=" * TAMANHO_LINHA)
-
-def exibir_titulo(titulo):
-    print()
-    exibir_linha()
-    print(titulo)
-    exibir_linha()
-
-def pausar():
-    input("\nPressione ENTER para voltar ao menu...")
-
-
-def exibir_menu():
-    exibir_titulo("AVEDEX - MENU PRINCIPAL")
-
-    for opcao in OPCOES_MENU:
-        print(opcao)
-
-def mostrar_boas_vindas(nome_usuario):
-    print(f"Olá, {nome_usuario}!")
-    print("Seja bem-vindo(a) à AveDex.")
-    print("Aqui vamos conhecer aves e praticar boas práticas.")
-
-
-def listar_aves(catalogo):
-    exibir_titulo("AVES CADASTRADAS")
-
-    for ave in catalogo:
-        print(f"{ave['id']} - {ave['nome_popular']}")
-
-
-def buscar_ave_por_id(catalogo, id_procurado):
-    for ave in catalogo:
-        if str(ave["id"]) == id_procurado:
-            return ave
-
-    return None
-
-def buscar_aves(catalogo, termo_busca):
-    resultados = []
-
-    termo = normalizar_texto(termo_busca)
-
-    for ave in catalogo:
-        campos_busca = [
-            ave.get("nome_popular", ""),
-            ave.get("nome_cientifico", ""),
-            ave.get("familia", ""),
-            ave.get("ordem", ""),
-            ave.get("dieta_tipo", "")
-        ]
-
-        texto_busca = " ".join(campos_busca)
-        texto_busca = normalizar_texto(texto_busca)
-
-        if termo in texto_busca:
-            resultados.append(ave)
-
-    return resultados
-
-def exibir_resultados_busca(resultados):
-    exibir_titulo("RESULTADOS DA BUSCA")
-
-    print(f"Foram encontradas {len(resultados)} ave(s).\n")
-
-    if len(resultados) == 0:
-        print("Nenhuma ave encontrada.")
-    else:
-        for ave in resultados:
-            print(
-                f"{ave['id']} - {ave['nome_popular']} "
-                f"({ave['familia']}, {ave['dieta_tipo']})"
-            )
-
-def selecionar_resultado_busca(resultados):
-    escolha = input(
-        "\nDigite o ID para ver detalhes ou ENTER para voltar: "
-    ).strip()
-
-    if escolha == "":
-        return
-
-    ave_encontrada = buscar_ave_por_id(
-        resultados,
-        escolha
-    )
-
-    if ave_encontrada is None:
-        print("ID não encontrado nos resultados.")
-    else:
-        exibir_detalhes_ave(ave_encontrada)
-
-def tela_busca(catalogo):
-    termo = input(
-        "Digite parte do nome, família, ordem ou dieta: "
-    ).strip()
-
-    if termo == "":
-        print("Digite algum texto para realizar a busca.")
-        return
-
-    resultados = buscar_aves(catalogo, termo)
-
-    exibir_resultados_busca(resultados)
-
-    if len(resultados) > 0:
-        selecionar_resultado_busca(resultados)
-
-def exibir_detalhes_ave(ave):
-    exibir_titulo("DETALHES DA AVE")
-
-    print(f"ID: {ave['id']}")
-    print(f"Nome popular: {ave['nome_popular']}")
-    print(f"Nome científico: {ave['nome_cientifico']}")
-    print(f"Habitat: {ave['habitat']}")
-    print(f"Alimentação: {ave['alimentacao']}")
-    print(
-        f"Curiosidade: "
-        f"{ave.get('curiosidade', 'Não informada')}"
-    )
-
-
-def selecionar_ave_por_id(catalogo):
-    listar_aves(catalogo)
-
-    id_escolhido = input(
-        "\nDigite o ID da ave: "
-    ).strip()
-
-    ave_encontrada = buscar_ave_por_id(
-        catalogo,
-        id_escolhido
-    )
-
-    if ave_encontrada is None:
-        print("Ave não encontrada. Confira o ID informado.")
-    else:
-        exibir_detalhes_ave(ave_encontrada)
-
-def escolher_ave(catalogo, mensagem):
-    listar_aves(catalogo)
-
-    id_escolhido = input(f"\n{mensagem}: ").strip()
-
-    ave_encontrada = buscar_ave_por_id(
-        catalogo,
-        id_escolhido
-    )
-
-    if ave_encontrada is None:
-        print("Ave não encontrada. Confira o ID informado.")
-        return None
-
-    return ave_encontrada
-
-
-def mostrar_sobre():
-    print("Sobre a AveDex:")
-    print("A AveDex é um catálogo interativo de aves.")
-    print("O projeto evolui durante a disciplina de Boas Práticas.")
-    print("Futuramente teremos busca, comparação e testes.")
 
 def processar_opcao(opcao, catalogo):
     if opcao == "1":
@@ -481,6 +309,8 @@ exibir_linha()
 nome_usuario = input(
     "Digite seu nome: "
 ).strip()
+
+mostrar_boas_vindas(nome_usuario)
 
 opcao_menu = ""
 
