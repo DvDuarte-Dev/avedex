@@ -6,30 +6,26 @@ Catálogo interativo de aves desenvolvido na disciplina de Boas Práticas de Pro
 
 - Menu interativo
 - Listagem das aves cadastradas
-- Busca de aves por ID
-- Busca textual por:
+- Busca de aves por:
   - Nome popular
   - Nome científico
   - Família
   - Ordem
-  - Tipo de dieta
-- Busca ignorando diferenças entre letras maiúsculas, minúsculas e acentos
-- Exibição detalhada das informações de cada ave
+  - Dieta
+- Visualização dos detalhes de uma ave
 - Comparação entre duas aves
-- Comparação de:
-  - Nome científico
-  - Família
-  - Ordem
-  - Tipo de dieta
-  - Habitat
-  - Comprimento
-  - Peso
-  - Status de conservação
-- Corte automático de textos longos na comparação
-- Indicação de qual ave é mais pesada
-- Tratamento de valores indisponíveis
-- Tratamento de entradas inválidas
-- Exibição da quantidade de resultados encontrados
+- Validação do dataset
+- Tratamento de erros no carregamento do JSON
+- Verificação das dependências do ambiente
+
+## Dependências
+
+As dependências opcionais estão listadas em `requirements.txt`.
+
+Para instalar:
+
+```bash
+pip install -r requirements.txt
 
 ## Catálogo
 
@@ -85,27 +81,15 @@ A organização do código facilita a manutenção, reduz repetições e prepara
 - [x] Tratar opção inválida no menu
 - [x] Encerrar o programa
 
-## Testes manuais realizados
-
-- [x] Listagem das aves
-- [x] Busca por parte do nome popular
-- [x] Busca ignorando acentos
-- [x] Busca por nome científico
-- [x] Busca por família
-- [x] Busca por ordem
-- [x] Busca por dieta
-- [x] Busca sem resultados
-- [x] Busca com entrada vazia
-- [x] Seleção de ave por ID existente
-- [x] Seleção de ave por ID inexistente
-- [x] Tentativa de abrir ID fora dos resultados
-- [x] Comparação entre duas aves
-- [x] Comparação da mesma ave
-- [x] Comparação com ID inexistente
-- [x] Exibição da ave mais pesada
-- [x] Tratamento de textos longos na comparação
-- [x] Tratamento de opção inválida
-- [x] Encerramento do programa
+## Testes defensivos realizados
+- [x] JSON carregado corretamente
+- [x] Arquivo JSON ausente
+- [x] JSON mal formatado
+- [x] Campo obrigatório ausente
+- [x] ID duplicado
+- [x] Campo numérico inválido
+- [x] Entrada inválida no ID
+- [x] Verificação de ambiente
 
 ## Exemplos de buscas
 
