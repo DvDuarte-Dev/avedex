@@ -32,8 +32,8 @@ pip install -r requirements.txt
 Atualmente o sistema possui 9 aves cadastradas:
 
 - Bem-te-vi
-- Canário-da-terra
 - João-de-barro
+- Canário-da-terra
 - Sabiá-laranjeira
 - Tucano-toco
 - Arara-azul

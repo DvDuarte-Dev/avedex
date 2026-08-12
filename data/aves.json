@@ -1,191 +1,288 @@
 {
+    "nome_dataset": "AveDex",
+    "versao": "1.0",
+    "descricao": "Dataset didático de aves para a disciplina de Boas Práticas de Programação.",
+    "total_aves": 11,
+    "escala_indice_conservacao": {
+        "LC": 1,
+        "NT": 2,
+        "VU": 3,
+        "EN": 4,
+        "CR": 5,
+        "EW": 6,
+        "EX": 7,
+        "DD": 0,
+        "NE": 0
+    },
+    "fontes_globais": {
+        "Guia de Aves Funed": "https://www.funed.mg.gov.br/",
+        "WikiAves": "https://www.wikiaves.com.br/",
+        "IUCN Red List": "https://www.iucnredlist.org/"
+    },
     "aves": [
         {
             "id": 1,
+            "slug": "bem_te_vi",
             "nome_popular": "Bem-te-vi",
             "nome_cientifico": "Pitangus sulphuratus",
             "ordem": "Passeriformes",
-        "familia": "Tyrannidae",
-        "dieta_tipo": "Onívora",
-        "habitat": "Áreas abertas, cidades e bordas de florestas",
-
-        "comprimento_cm": 23,
-        "peso_g": 68,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Insetos, frutos e pequenos animais",
-        "curiosidade": "Seu canto lembra a expressão bem-te-vi."
-    },
-    {
-        "id": 2,
-        "nome_popular": "Canário-da-terra",
-        "nome_cientifico": "Sicalis flaveola",
-        "ordem": "Passeriformes",
-        "familia": "Thraupidae",
-        "dieta_tipo": "Granívora",
-        "habitat": "Campos, áreas abertas e ambientes rurais",
-
-        "comprimento_cm": 13,
-        "peso_g": 20,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Sementes e pequenos insetos",
-        "curiosidade": "O macho possui plumagem amarela intensa."
-    },
-    {
-        "id": 3,
-        "nome_popular": "João-de-barro",
-        "nome_cientifico": "Furnarius rufus",
-        "ordem": "Passeriformes",
-        "familia": "Furnariidae",
-        "dieta_tipo": "Insetívora",
-        "habitat": "Campos, cidades e áreas rurais",
-
-        "comprimento_cm": 20,
-        "peso_g": 49,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Insetos e outros pequenos invertebrados",
-        "curiosidade": "Constrói um ninho de barro característico."
-    },
-    {
-        "id": 4,
-        "nome_popular": "Sabiá-laranjeira",
-        "nome_cientifico": "Turdus rufiventris",
-        "ordem": "Passeriformes",
-        "familia": "Turdidae",
-        "dieta_tipo": "Onívora",
-        "habitat": "Jardins, parques e áreas arborizadas",
-
-        "comprimento_cm": 25,
-        "peso_g": 77,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Frutas, insetos e minhocas",
-        "curiosidade": "É considerada a ave símbolo do Brasil."
-    },
-    {
-        "id": 5,
-        "nome_popular": "Tucano-toco",
-        "nome_cientifico": "Ramphastos toco",
-        "ordem": "Piciformes",
-        "familia": "Ramphastidae",
-        "dieta_tipo": "Onívora",
-        "habitat": "Cerrado, matas abertas e regiões arborizadas",
-
-        "comprimento_cm": 61,
-        "peso_g": 650,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Frutas, ovos e pequenos animais",
-        "curiosidade": "Possui um dos maiores bicos entre as aves."
-    },
-    {
-        "id": 6,
-        "nome_popular": "Arara-azul",
-        "nome_cientifico": "Anodorhynchus hyacinthinus",
-        "ordem": "Psittaciformes",
-        "familia": "Psittacidae",
-        "dieta_tipo": "Granívora",
-        "habitat": "Pantanal e Cerrado",
-
-        "comprimento_cm": 100,
-        "peso_g": 1400,
-        "status_conservacao": "Vulnerável",
-        "indice_conservacao": 3,
-
-        "alimentacao": "Frutas e sementes",
-        "curiosidade": "É a maior espécie de arara do mundo."
-    },
-    {
-        "id": 7,
-        "nome_popular": "Coruja-buraqueira",
-        "nome_cientifico": "Athene cunicularia",
-        "ordem": "Strigiformes",
-        "familia": "Strigidae",
-        "dieta_tipo": "Carnívora",
-        "habitat": "Campos e áreas abertas",
-
-        "comprimento_cm": 24,
-        "peso_g": 170,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Insetos e pequenos vertebrados",
-        "curiosidade": "Costuma viver em tocas no chão."
-    },
-    {
-        "id": 8,
-        "nome_popular": "Beija-flor-tesoura",
-        "nome_cientifico": "Eupetomena macroura",
-        "ordem": "Apodiformes",
-        "familia": "Trochilidae",
-        "dieta_tipo": "Nectarívora",
-        "habitat": "Jardins, matas e áreas urbanas",
-
-        "comprimento_cm": 16,
-        "peso_g": 7,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Néctar e pequenos insetos",
-        "curiosidade": "Pode bater as asas mais de 50 vezes por segundo."
-    },
-    {
-        "id": 9,
-        "nome_popular": "Garça-branca-grande",
-        "nome_cientifico": "Ardea alba",
-        "ordem": "Pelecaniformes",
-        "familia": "Ardeidae",
-        "dieta_tipo": "Carnívora",
-        "habitat": "Lagos, rios e áreas alagadas",
-
-        "comprimento_cm": 98,
-        "peso_g": 1000,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Peixes, anfíbios e pequenos animais",
-        "curiosidade": "É uma excelente pescadora e caça parada na água."
-    },
-    {
-        "id": 10,
-        "nome_popular": "Quero-quero",
-        "nome_cientifico": "Vanellus chilensis",
-        "ordem": "Charadriiformes",
-        "familia": "Charadriidae",
-        "dieta_tipo": "Carnívora",
-        "habitat": "Campos, áreas abertas e regiões urbanas",
-
-        "comprimento_cm": 37,
-        "peso_g": 300,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Insetos, pequenos invertebrados e outros animais",
-        "curiosidade": "É conhecido pelo seu canto característico e comportamento territorial."
-    },
-    {
-        "id": 11,
-        "nome_popular": "Pica-pau-do-campo",
-        "nome_cientifico": "Colaptes campestris",
-        "ordem": "Piciformes",
-        "familia": "Picidae",
-        "dieta_tipo": "Insetívora",
-        "habitat": "Campos, cerrados e áreas abertas",
-
-        "comprimento_cm": 30,
-        "peso_g": 140,
-        "status_conservacao": "Pouco preocupante",
-        "indice_conservacao": 1,
-
-        "alimentacao": "Insetos e pequenos invertebrados",
-        "curiosidade": "É frequentemente encontrado forrageando no solo em áreas abertas."
-    }
-]
+            "familia": "Tyrannidae",
+            "dieta_tipo": "Onívoro",
+            "comprimento_cm": 23.0,
+            "peso_g": 68.0,
+            "status_conservacao": "LC",
+            "indice_conservacao": 1,
+            "descricao": "Ave muito conhecida em áreas urbanas e rurais.",
+            "habitat": "Áreas abertas, cidades e bordas de florestas.",
+            "alimentacao": "Insetos, frutos e pequenos animais.",
+            "curiosidade": "Seu canto parece dizer o próprio nome.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 2,
+            "slug": "joao_de_barro",
+            "nome_popular": "João-de-barro",
+            "nome_cientifico": "Furnarius rufus",
+            "ordem": "Passeriformes",
+            "familia": "Furnariidae",
+            "dieta_tipo": "Insetívoro",
+            "comprimento_cm": 20.0,
+            "peso_g": 49.0,
+            "status_conservacao": "LC",
+            "indice_conservacao": 1,
+            "descricao": "Ave conhecida por construir ninhos de barro.",
+            "habitat": "Campos, cidades e áreas rurais.",
+            "alimentacao": "Insetos e outros invertebrados.",
+            "curiosidade": "O ninho de barro é uma de suas características mais marcantes.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 3,
+            "slug": "canario_da_terra",
+            "nome_popular": "Canário-da-terra",
+            "nome_cientifico": "Sicalis flaveola",
+            "ordem": "Passeriformes",
+            "familia": "Thraupidae",
+            "dieta_tipo": "Granívoro",
+            "comprimento_cm": 13.0,
+            "peso_g": 20.0,
+            "status_conservacao": "LC",
+            "indice_conservacao": 1,
+            "descricao": "Ave de canto forte e melodioso.",
+            "habitat": "Campos e áreas abertas.",
+            "alimentacao": "Sementes e pequenos insetos.",
+            "curiosidade": "É bastante reconhecido pelo canto.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 4,
+            "slug": "sabia_laranjeira",
+            "nome_popular": "Sabiá-laranjeira",
+            "nome_cientifico": "Turdus rufiventris",
+            "ordem": "Passeriformes",
+            "familia": "Turdidae",
+            "dieta_tipo": "Onívora",
+            "habitat": "Jardins, parques e áreas arborizadas",
+            "comprimento_cm": 25,
+            "peso_g": 77,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Ave encontrada em jardins, parques e áreas arborizadas.",
+            "alimentacao": "Frutas, insetos e minhocas",
+            "curiosidade": "É considerada a ave símbolo do Brasil.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 5,
+            "slug": "tucano_toco",
+            "nome_popular": "Tucano-toco",
+            "nome_cientifico": "Ramphastos toco",
+            "ordem": "Piciformes",
+            "familia": "Ramphastidae",
+            "dieta_tipo": "Onívora",
+            "habitat": "Cerrado, matas abertas e regiões arborizadas",
+            "comprimento_cm": 61,
+            "peso_g": 650,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Ave conhecida pelo grande bico e pela plumagem característica.",
+            "alimentacao": "Frutas, ovos e pequenos animais",
+            "curiosidade": "Possui um dos maiores bicos entre as aves.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 6,
+            "slug": "arara_azul",
+            "nome_popular": "Arara-azul",
+            "nome_cientifico": "Anodorhynchus hyacinthinus",
+            "ordem": "Psittaciformes",
+            "familia": "Psittacidae",
+            "dieta_tipo": "Granívora",
+            "habitat": "Pantanal e Cerrado",
+            "comprimento_cm": 100,
+            "peso_g": 1400,
+            "status_conservacao": "Vulnerável",
+            "indice_conservacao": 3,
+            "descricao": "Grande arara encontrada principalmente no Pantanal e no Cerrado.",
+            "alimentacao": "Frutas e sementes",
+            "curiosidade": "É a maior espécie de arara do mundo.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 7,
+            "slug": "coruja_buraqueira",
+            "nome_popular": "Coruja-buraqueira",
+            "nome_cientifico": "Athene cunicularia",
+            "ordem": "Strigiformes",
+            "familia": "Strigidae",
+            "dieta_tipo": "Carnívora",
+            "habitat": "Campos e áreas abertas",
+            "comprimento_cm": 24,
+            "peso_g": 170,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Coruja que costuma ocupar tocas em áreas abertas.",
+            "alimentacao": "Insetos e pequenos vertebrados",
+            "curiosidade": "Costuma viver em tocas no chão.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 8,
+            "slug": "beija_flor_tesoura",
+            "nome_popular": "Beija-flor-tesoura",
+            "nome_cientifico": "Eupetomena macroura",
+            "ordem": "Apodiformes",
+            "familia": "Trochilidae",
+            "dieta_tipo": "Nectarívora",
+            "habitat": "Jardins, matas e áreas urbanas",
+            "comprimento_cm": 16,
+            "peso_g": 7,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Beija-flor encontrado em jardins, matas e áreas urbanas.",
+            "alimentacao": "Néctar e pequenos insetos",
+            "curiosidade": "Pode bater as asas mais de 50 vezes por segundo.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 9,
+            "slug": "garca_branca_grande",
+            "nome_popular": "Garça-branca-grande",
+            "nome_cientifico": "Ardea alba",
+            "ordem": "Pelecaniformes",
+            "familia": "Ardeidae",
+            "dieta_tipo": "Carnívora",
+            "habitat": "Lagos, rios e áreas alagadas",
+            "comprimento_cm": 98,
+            "peso_g": 1000,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Ave de áreas alagadas que captura animais aquáticos para se alimentar.",
+            "alimentacao": "Peixes, anfíbios e pequenos animais",
+            "curiosidade": "É uma excelente pescadora e caça parada na água.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 10,
+            "slug": "quero_quero",
+            "nome_popular": "Quero-quero",
+            "nome_cientifico": "Vanellus chilensis",
+            "ordem": "Charadriiformes",
+            "familia": "Charadriidae",
+            "dieta_tipo": "Carnívora",
+            "habitat": "Campos, áreas abertas e regiões urbanas",
+            "comprimento_cm": 37,
+            "peso_g": 300,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Ave territorial encontrada em campos, áreas abertas e regiões urbanas.",
+            "alimentacao": "Insetos, pequenos invertebrados e outros animais",
+            "curiosidade": "É conhecido pelo seu canto característico e comportamento territorial.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        },
+        {
+            "id": 11,
+            "slug": "pica_pau_do_campo",
+            "nome_popular": "Pica-pau-do-campo",
+            "nome_cientifico": "Colaptes campestris",
+            "ordem": "Piciformes",
+            "familia": "Picidae",
+            "dieta_tipo": "Insetívora",
+            "habitat": "Campos, cerrados e áreas abertas",
+            "comprimento_cm": 30,
+            "peso_g": 140,
+            "status_conservacao": "Pouco preocupante",
+            "indice_conservacao": 1,
+            "descricao": "Pica-pau encontrado principalmente em campos, cerrados e áreas abertas.",
+            "alimentacao": "Insetos e pequenos invertebrados",
+            "curiosidade": "É frequentemente encontrado forrageando no solo em áreas abertas.",
+            "midia": {
+                "pagina_guia": null,
+                "fotografo": "",
+                "wikiaves_url": "",
+                "som_url": "",
+                "imagem_url": ""
+            }
+        }
+    ]
 }

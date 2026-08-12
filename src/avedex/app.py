@@ -1,4 +1,5 @@
 from src.avedex.ambiente import verificar_ambiente
+from src.avedex.creditos import mostrar_creditos
 
 from src.avedex.dados import (
     carregar_aves,
@@ -39,6 +40,9 @@ def processar_opcao(opcao, catalogo):
 
     elif opcao == "6":
         verificar_ambiente()
+
+    elif opcao == "7":
+        mostrar_creditos()
 
     elif opcao == "0":
         print("Encerrando a AveDex.")

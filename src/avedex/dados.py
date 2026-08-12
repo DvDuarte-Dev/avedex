@@ -94,22 +94,28 @@ def validar_dataset(aves):
 
     return problemas
 
-def carregar_aves():
+def carregar_dataset():
     try:
         with open(CAMINHO_AVES, "r", encoding="utf-8") as arquivo:
-            dados = json.load(arquivo)
-
-        return dados.get("aves", [])
+            return json.load(arquivo)
 
     except FileNotFoundError:
         mensagem_erro(
             f"Arquivo de dataset não encontrado: {CAMINHO_AVES}"
         )
-        return []
+        return {}
 
     except json.JSONDecodeError:
         mensagem_erro("Erro ao ler o JSON do dataset.")
         mensagem_erro(
             "Verifique vírgulas, aspas, chaves e colchetes."
         )
-        return []
+        return {}
+
+def carregar_aves():
+    dataset = carregar_dataset()
+    return dataset.get("aves", [])
+
+def obter_fontes_globais():
+    dataset = carregar_dataset()
+    return dataset.get("fontes_globais", {})
