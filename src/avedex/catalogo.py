@@ -1,5 +1,6 @@
 from src.avedex.interface import exibir_titulo
 from src.avedex.utils import normalizar_texto
+from src.avedex.utils import mensagem_aviso
 
 def listar_aves(catalogo):
     exibir_titulo("AVES CADASTRADAS")
@@ -7,9 +8,18 @@ def listar_aves(catalogo):
     for ave in catalogo:
         print(f"{ave['id']} - {ave['nome_popular']}")
 
+def ler_id_ave(mensagem):
+    while True:
+        entrada = input(mensagem).strip()
+
+        if entrada.isdigit():
+            return int(entrada)
+
+        mensagem_aviso("Digite apenas números.")
+
 def buscar_ave_por_id(catalogo, id_procurado):
     for ave in catalogo:
-        if str(ave["id"]) == id_procurado:
+        if ave["id"] == id_procurado:
             return ave
 
     return None
@@ -100,9 +110,9 @@ def exibir_detalhes_ave(ave):
 def selecionar_ave_por_id(catalogo):
     listar_aves(catalogo)
 
-    id_escolhido = input(
+    id_escolhido = ler_id_ave(
         "\nDigite o ID da ave: "
-    ).strip()
+    )
 
     ave_encontrada = buscar_ave_por_id(
         catalogo,
@@ -110,14 +120,18 @@ def selecionar_ave_por_id(catalogo):
     )
 
     if ave_encontrada is None:
-        print("Ave não encontrada. Confira o ID informado.")
+        mensagem_aviso(
+            "Ave não encontrada. Confira o ID informado."
+        )
     else:
         exibir_detalhes_ave(ave_encontrada)
 
 def escolher_ave(catalogo, mensagem):
     listar_aves(catalogo)
 
-    id_escolhido = input(f"\n{mensagem}: ").strip()
+    id_escolhido = ler_id_ave(
+        f"\n{mensagem}: "
+    )
 
     ave_encontrada = buscar_ave_por_id(
         catalogo,
@@ -125,7 +139,9 @@ def escolher_ave(catalogo, mensagem):
     )
 
     if ave_encontrada is None:
-        print("Ave não encontrada. Confira o ID informado.")
+        mensagem_aviso(
+            "Ave não encontrada. Confira o ID informado."
+        )
         return None
 
     return ave_encontrada
