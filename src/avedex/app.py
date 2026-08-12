@@ -1,4 +1,7 @@
-from src.avedex.dados import carregar_aves
+from src.avedex.dados import (
+    carregar_aves,
+    validar_dataset,
+)
 
 from src.avedex.interface import (
     exibir_linha,
@@ -43,6 +46,14 @@ def processar_opcao(opcao, catalogo):
 
 def executar():
     catalogo_aves = carregar_aves()
+
+    problemas = validar_dataset(catalogo_aves)
+
+    if problemas:
+        print("[AVISO] O dataset possui problemas:")
+
+        for problema in problemas:
+            print(f"- {problema}")
     
     exibir_linha()
     print("AVEDEX")
