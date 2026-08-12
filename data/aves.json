@@ -152,6 +152,40 @@
 
         "alimentacao": "Peixes, anfíbios e pequenos animais",
         "curiosidade": "É uma excelente pescadora e caça parada na água."
+    },
+    {
+        "id": 10,
+        "nome_popular": "Quero-quero",
+        "nome_cientifico": "Vanellus chilensis",
+        "ordem": "Charadriiformes",
+        "familia": "Charadriidae",
+        "dieta_tipo": "Carnívora",
+        "habitat": "Campos, áreas abertas e regiões urbanas",
+
+        "comprimento_cm": 37,
+        "peso_g": 300,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
+        "alimentacao": "Insetos, pequenos invertebrados e outros animais",
+        "curiosidade": "É conhecido pelo seu canto característico e comportamento territorial."
+    },
+    {
+        "id": 11,
+        "nome_popular": "Pica-pau-do-campo",
+        "nome_cientifico": "Colaptes campestris",
+        "ordem": "Piciformes",
+        "familia": "Picidae",
+        "dieta_tipo": "Insetívora",
+        "habitat": "Campos, cerrados e áreas abertas",
+
+        "comprimento_cm": 30,
+        "peso_g": 140,
+        "status_conservacao": "Pouco preocupante",
+        "indice_conservacao": 1,
+
+        "alimentacao": "Insetos e pequenos invertebrados",
+        "curiosidade": "É frequentemente encontrado forrageando no solo em áreas abertas."
     }
 ]
 }

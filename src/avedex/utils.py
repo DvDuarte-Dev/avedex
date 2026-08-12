@@ -32,3 +32,17 @@ def cortar_texto(texto, tamanho=25):
         return texto
 
     return texto[: tamanho - 3] + "..."
+
+def mensagem_sucesso(texto):
+    # Mostra uma mensagem positiva para o usuário.
+    print(f"[OK] {texto}")
+
+
+def mensagem_aviso(texto):
+    # Mostra uma mensagem de atenção.
+    print(f"[AVISO] {texto}")
+
+
+def mensagem_erro(texto):
+    # Mostra uma mensagem de erro.
+    print(f"[ERRO] {texto}")
