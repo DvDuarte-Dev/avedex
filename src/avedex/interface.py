@@ -1,10 +1,11 @@
 OPCOES_MENU = [
     "1 - Listar aves",
-    "2 - Buscar aves",
+    "2 - Buscar ave",
     "3 - Ver detalhes de uma ave",
     "4 - Comparar aves",
     "5 - Sobre",
-    "0 - Sair"
+    "6 - Verificar ambiente",
+    "0 - Sair",
 ]
 
 TAMANHO_LINHA = 50
