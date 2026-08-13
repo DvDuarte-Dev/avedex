@@ -5,8 +5,10 @@ OPCOES_MENU = [
     "4 - Ver detalhes de uma ave",
     "5 - Comparar duas aves",
     "6 - Batalha AveDex",
-    "7 - Verificar ambiente",
-    "8 - Créditos e fontes",
+    "7 - Visualizar imagem de uma ave",
+    "8 - Tocar som de uma ave",
+    "9 - Verificar ambiente",
+    "10 - Créditos e fontes",
     "0 - Sair",
 ]
 

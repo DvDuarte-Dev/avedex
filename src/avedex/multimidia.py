@@ -86,7 +86,10 @@ def baixar_arquivo(url, caminho_destino):
 
         resposta = requests.get(
             url,
-            timeout=20
+            timeout=20,
+            headers={
+                "User-Agent": "AveDex/1.0 (projeto academico)"
+            }
         )
 
         resposta.raise_for_status()

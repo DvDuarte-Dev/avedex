@@ -31,6 +31,30 @@ from src.avedex.comparacao import tela_comparacao
 
 from src.avedex.batalha import batalha_avedex
 
+from src.avedex.multimidia import (
+    visualizar_imagem,
+    tocar_som,
+)
+
+def selecionar_e_visualizar_imagem(catalogo):
+    ave = escolher_ave(
+        catalogo,
+        "Escolha uma ave para visualizar a imagem"
+    )
+
+    if ave is not None:
+        visualizar_imagem(ave)
+
+
+def selecionar_e_tocar_som(catalogo):
+    ave = escolher_ave(
+        catalogo,
+        "Escolha uma ave para ouvir o som"
+    )
+
+    if ave is not None:
+        tocar_som(ave)
+
 def processar_opcao(opcao, catalogo):
     if opcao == "1":
         listar_aves(catalogo)
@@ -54,9 +78,15 @@ def processar_opcao(opcao, catalogo):
         )
 
     elif opcao == "7":
-        verificar_ambiente()
+        selecionar_e_visualizar_imagem(catalogo)
 
     elif opcao == "8":
+        selecionar_e_tocar_som(catalogo)
+
+    elif opcao == "9":
+        verificar_ambiente()
+
+    elif opcao == "10":
         mostrar_creditos()
 
     elif opcao == "0":
@@ -65,7 +95,7 @@ def processar_opcao(opcao, catalogo):
     else:
         print(
             "Opção inválida. "
-            "Digite 0, 1, 2, 3, 4, 5, 6, 7 ou 8."
+            "Digite 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ou 10."
         )
 
 def executar():

@@ -17,7 +17,8 @@
     "fontes_globais": {
         "Guia de Aves Funed": "https://www.funed.mg.gov.br/",
         "WikiAves": "https://www.wikiaves.com.br/",
-        "IUCN Red List": "https://www.iucnredlist.org/"
+        "IUCN Red List": "https://www.iucnredlist.org/",
+        "Wikimedia Commons": "https://commons.wikimedia.org/"
     },
     "aves": [
         {
@@ -38,10 +39,10 @@
             "curiosidade": "Seu canto parece dizer o próprio nome.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Donald Hobern",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pitangus-3.ogg",
+                "imagem_url": "https://live.staticflickr.com/5689/30659959896_98d0db5d84_o.jpg"
             }
         },
         {
@@ -62,10 +63,10 @@
             "curiosidade": "O ninho de barro é uma de suas características mais marcantes.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Wikimedia Commons",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Furnarius_rufus.ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/FurnariusRufus.jpg"
             }
         },
         {
@@ -86,10 +87,10 @@
             "curiosidade": "É bastante reconhecido pelo canto.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Evaldo Resende",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sicalis_flaveola.ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sicalis_flaveola(macho).jpg"
             }
         },
         {
@@ -110,10 +111,10 @@
             "curiosidade": "É considerada a ave símbolo do Brasil.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Flávio Cruvinel Brandão",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Turdus_rufiventris.ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Turdus-rufiventris.jpg"
             }
         },
         {
@@ -134,10 +135,10 @@
             "curiosidade": "Possui um dos maiores bicos entre as aves.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Fabrício Grigolin",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toco_Toucan_call_(Ramphastos_toco).ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ramphastos_toco.jpg"
             }
         },
         {
@@ -158,10 +159,10 @@
             "curiosidade": "É a maior espécie de arara do mundo.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Raul654",
                 "wikiaves_url": "",
                 "som_url": "",
-                "imagem_url": ""
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anodorhynchus_hyacinthinus1.jpg"
             }
         },
         {
@@ -182,10 +183,10 @@
             "curiosidade": "Costuma viver em tocas no chão.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Erik Neves",
                 "wikiaves_url": "",
                 "som_url": "",
-                "imagem_url": ""
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Athene_cunicularia.jpg"
             }
         },
         {
@@ -206,10 +207,10 @@
             "curiosidade": "Pode bater as asas mais de 50 vezes por segundo.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "José Roberto Peruca",
                 "wikiaves_url": "",
                 "som_url": "",
-                "imagem_url": ""
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eupetomena_macroura_(Trochilidae)_(15445377044).jpg"
             }
         },
         {
@@ -230,10 +231,10 @@
             "curiosidade": "É uma excelente pescadora e caça parada na água.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Jonathon Jongsma",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ardea_alba_-_Great_Egret_XC131650.ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ardea_alba.jpg"
             }
         },
         {
@@ -254,10 +255,10 @@
             "curiosidade": "É conhecido pelo seu canto característico e comportamento territorial.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "Eurico Zimbres",
                 "wikiaves_url": "",
-                "som_url": "",
-                "imagem_url": ""
+                "som_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vanellus_Chilensis.ogg",
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vanellus_chilensis.JPG"
             }
         },
         {
@@ -278,10 +279,10 @@
             "curiosidade": "É frequentemente encontrado forrageando no solo em áreas abertas.",
             "midia": {
                 "pagina_guia": null,
-                "fotografo": "",
+                "fotografo": "mauroguanandi",
                 "wikiaves_url": "",
                 "som_url": "",
-                "imagem_url": ""
+                "imagem_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Colaptes_campestris.jpg"
             }
         }
     ]
