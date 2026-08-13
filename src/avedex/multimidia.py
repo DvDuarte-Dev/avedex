@@ -100,3 +100,31 @@ def baixar_arquivo(url, caminho_destino):
             f"Não foi possível baixar a mídia: {erro}"
         )
         return False
+
+def obter_midia(ave, tipo):
+    url = obter_url_midia(ave, tipo)
+
+    if not url:
+        mensagem_aviso(
+            f"Não há URL de {tipo} cadastrada para esta ave."
+        )
+        return None
+
+    caminho_cache = criar_caminho_cache(
+        ave,
+        tipo,
+        url
+    )
+
+    if caminho_cache.exists():
+        return caminho_cache
+
+    sucesso = baixar_arquivo(
+        url,
+        caminho_cache
+    )
+
+    if not sucesso:
+        return None
+
+    return caminho_cache
