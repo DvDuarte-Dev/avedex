@@ -1,17 +1,20 @@
 import random
 
-from src.avedex.interface import exibir_titulo
 from src.avedex.utils import (
+    paginar_aves,
     normalizar_texto,
     mensagem_aviso,
     pausar,
+    titulo,
 )
+
 
 def listar_aves(catalogo):
     return paginar_aves(
         catalogo,
         "AVES CADASTRADAS"
     )
+
 
 def mostrar_ave_aleatoria(catalogo):
     if not catalogo:
@@ -22,7 +25,7 @@ def mostrar_ave_aleatoria(catalogo):
 
     ave = random.choice(catalogo)
 
-    exibir_titulo("AVE ALEATÓRIA")
+    titulo("AVE ALEATÓRIA")
 
     print(
         f"Ave sorteada: "
@@ -31,94 +34,6 @@ def mostrar_ave_aleatoria(catalogo):
 
     exibir_detalhes_ave(ave)
 
-def ler_comando_paginacao():
-    print()
-    print("ENTER - próxima página")
-    print("p - página anterior")
-    print("q - sair")
-    print("ID - escolher uma ave")
-
-    return input("Comando: ").strip().lower()
-
-
-def paginar_aves(aves, titulo_lista="AVES", tamanho_pagina=10):
-    if not aves:
-        mensagem_aviso("Nenhuma ave disponível.")
-        return None
-
-    pagina = 0
-
-    while True:
-        total = len(aves)
-
-        inicio = pagina * tamanho_pagina
-        fim = inicio + tamanho_pagina
-
-        aves_pagina = aves[inicio:fim]
-
-        total_paginas = (
-            total + tamanho_pagina - 1
-        ) // tamanho_pagina
-
-        exibir_titulo(
-            f"{titulo_lista} - página "
-            f"{pagina + 1} de {total_paginas}"
-        )
-
-        for ave in aves_pagina:
-            identificador = ave.get("id", "-")
-            nome = ave.get(
-                "nome_popular",
-                "Nome não informado"
-            )
-            familia = ave.get("familia", "-")
-
-            print(
-                f"{str(identificador):>3} - "
-                f"{nome} ({familia})"
-            )
-
-        print()
-
-        print(
-            f"Mostrando {inicio + 1} a "
-            f"{min(fim, total)} de {total} aves."
-        )
-
-        comando = ler_comando_paginacao()
-
-        if comando == "":
-            if fim < total:
-                pagina += 1
-            else:
-                mensagem_aviso(
-                    "Você já está na última página."
-                )
-                pausar()
-
-        elif comando == "p":
-            if pagina > 0:
-                pagina -= 1
-            else:
-                mensagem_aviso(
-                    "Você já está na primeira página."
-                )
-                pausar()
-
-        elif comando == "q":
-            return None
-
-        elif comando.isdigit():
-            for ave in aves:
-                if str(ave.get("id")) == comando:
-                    return ave
-
-            mensagem_aviso("ID não encontrado.")
-            pausar()
-
-        else:
-            mensagem_aviso("Comando inválido.")
-            pausar()
 
 def ler_id_ave(mensagem):
     while True:
@@ -129,12 +44,14 @@ def ler_id_ave(mensagem):
 
         mensagem_aviso("Digite apenas números.")
 
+
 def buscar_ave_por_id(catalogo, id_procurado):
     for ave in catalogo:
         if ave["id"] == id_procurado:
             return ave
 
     return None
+
 
 def buscar_aves(catalogo, termo_busca):
     resultados = []
@@ -147,7 +64,7 @@ def buscar_aves(catalogo, termo_busca):
             ave.get("nome_cientifico", ""),
             ave.get("familia", ""),
             ave.get("ordem", ""),
-            ave.get("dieta_tipo", "")
+            ave.get("dieta_tipo", ""),
         ]
 
         texto_busca = " ".join(campos_busca)
@@ -158,89 +75,137 @@ def buscar_aves(catalogo, termo_busca):
 
     return resultados
 
-def exibir_resultados_busca(resultados):
-    exibir_titulo("RESULTADOS DA BUSCA")
 
-    print(f"Foram encontradas {len(resultados)} ave(s).\n")
+def exibir_resultados_busca(resultados):
+    titulo("RESULTADOS DA BUSCA")
+
+    print(
+        f"Foram encontradas "
+        f"{len(resultados)} ave(s).\n"
+    )
 
     if len(resultados) == 0:
         print("Nenhuma ave encontrada.")
     else:
         for ave in resultados:
             print(
-                f"{ave['id']} - {ave['nome_popular']} "
-                f"({ave['familia']}, {ave['dieta_tipo']})"
+                f"{ave['id']} - "
+                f"{ave['nome_popular']} "
+                f"({ave['familia']}, "
+                f"{ave['dieta_tipo']})"
             )
+
 
 def selecionar_resultado_busca(resultados):
     escolha = input(
-        "\nDigite o ID para ver detalhes ou ENTER para voltar: "
+        "\nDigite o ID para ver detalhes "
+        "ou ENTER para voltar: "
     ).strip()
 
     if escolha == "":
         return
 
+    if not escolha.isdigit():
+        mensagem_aviso(
+            "Digite apenas números."
+        )
+        return
+
     ave_encontrada = buscar_ave_por_id(
         resultados,
-        escolha
+        int(escolha)
     )
 
     if ave_encontrada is None:
-        print("ID não encontrado nos resultados.")
+        mensagem_aviso(
+            "ID não encontrado nos resultados."
+        )
     else:
         exibir_detalhes_ave(ave_encontrada)
 
+
 def tela_busca(catalogo):
     termo = input(
-        "Digite parte do nome, família, ordem ou dieta: "
+        "Digite parte do nome, família, "
+        "ordem ou dieta: "
     ).strip()
 
     if termo == "":
-        print("Digite algum texto para realizar a busca.")
+        mensagem_aviso(
+            "Digite algum texto para realizar a busca."
+        )
         return
 
-    resultados = buscar_aves(catalogo, termo)
+    resultados = buscar_aves(
+        catalogo,
+        termo
+    )
 
     exibir_resultados_busca(resultados)
 
     if len(resultados) > 0:
         selecionar_resultado_busca(resultados)
 
+
 def exibir_detalhes_ave(ave):
-    exibir_titulo("DETALHES DA AVE")
+    titulo("DETALHES DA AVE")
 
     print(f"ID: {ave['id']}")
-    print(f"Nome popular: {ave['nome_popular']}")
-    print(f"Nome científico: {ave['nome_cientifico']}")
+    print(
+        f"Nome popular: "
+        f"{ave['nome_popular']}"
+    )
+    print(
+        f"Nome científico: "
+        f"{ave['nome_cientifico']}"
+    )
+    print(f"Ordem: {ave.get('ordem', 'Não informado')}")
+    print(f"Família: {ave.get('familia', 'Não informado')}")
     print(f"Habitat: {ave['habitat']}")
-    print(f"Alimentação: {ave['alimentacao']}")
+    print(
+        f"Dieta: "
+        f"{ave.get('dieta_tipo', 'Não informado')}"
+    )
+    print(
+        f"Alimentação: "
+        f"{ave['alimentacao']}"
+    )
+    print(
+        f"Comprimento: "
+        f"{ave.get('comprimento_cm', 'Não informado')} cm"
+    )
+    print(
+        f"Peso: "
+        f"{ave.get('peso_g', 'Não informado')} g"
+    )
+    print(
+        f"Conservação: "
+        f"{ave.get('status_conservacao', 'Não informado')}"
+    )
     print(
         f"Curiosidade: "
         f"{ave.get('curiosidade', 'Não informada')}"
     )
 
+    pausar()
+
+
 def selecionar_ave_por_id(catalogo):
     ave_encontrada = listar_aves(catalogo)
 
     if ave_encontrada is not None:
-        exibir_detalhes_ave(ave_encontrada)
+        exibir_detalhes_ave(
+            ave_encontrada
+        )
+
 
 def escolher_ave(catalogo, mensagem):
-    listar_aves(catalogo)
+    print()
+    print(mensagem)
 
-    id_escolhido = ler_id_ave(
-        f"\n{mensagem}: "
-    )
-
-    ave_encontrada = buscar_ave_por_id(
+    ave = paginar_aves(
         catalogo,
-        id_escolhido
+        "SELECIONE UMA AVE"
     )
 
-    if ave_encontrada is None:
-        mensagem_aviso(
-            "Ave não encontrada. Confira o ID informado."
-        )
-        return None
-
-    return ave_encontrada
+    return ave

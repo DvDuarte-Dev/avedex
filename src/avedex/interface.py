@@ -1,3 +1,24 @@
+"""Elementos visuais e menu principal da AveDex."""
+
+import random
+
+from src.avedex.multimidia import tocar_som
+from src.avedex.utils import Cor, caixa, colorir, limpar_tela
+
+
+BANNER_AVEDEX = r"""
+ ___    ____  ________  ________  ______
+/   |  / __ \/ ____/ / / / ____/ / / / /
+/ /| | / /_/ / __/ / / / / / __/ / /_/ /
+/ ___ |/ _, _/ /___/ /_/ / /_/ / / / / /
+/_/  |_/_/ |_/_____/\____/\____/_/ /_/ /
+"""
+
+
+# Troque para True caso queira reproduzir um som curto na abertura.
+TOCAR_SOM_NA_ABERTURA = False
+
+
 OPCOES_MENU = [
     "1 - Listar aves",
     "2 - Buscar ave",
@@ -12,34 +33,62 @@ OPCOES_MENU = [
     "0 - Sair",
 ]
 
-TAMANHO_LINHA = 50
 
-def exibir_linha():
-    print("=" * TAMANHO_LINHA)
+def escolher_ave_com_som(aves):
+    """Sorteia uma ave que possua URL de som."""
 
-def exibir_titulo(titulo):
-    print()
-    exibir_linha()
-    print(titulo)
-    exibir_linha()
+    aves_com_som = [
+        ave
+        for ave in aves
+        if str(ave.get("midia", {}).get("som_url", "")).strip()
+    ]
 
-def pausar():
-    input("\nPressione ENTER para voltar ao menu...")
+    if not aves_com_som:
+        return None
+
+    return random.choice(aves_com_som)
 
 
-def exibir_menu():
-    exibir_titulo("AVEDEX - MENU PRINCIPAL")
+def abertura(aves):
+    """Exibe a abertura visual e, opcionalmente, um som curto."""
 
-    for opcao in OPCOES_MENU:
-        print(opcao)
+    limpar_tela()
 
-def mostrar_boas_vindas(nome_usuario):
-    print(f"Olá, {nome_usuario}!")
-    print("Seja bem-vindo(a) à AveDex.")
-    print("Aqui vamos conhecer aves e praticar boas práticas.")
+    print(colorir(BANNER_AVEDEX, Cor.CIANO))
 
-def mostrar_sobre():
-    print("Sobre a AveDex:")
-    print("A AveDex é um catálogo interativo de aves.")
-    print("O projeto evolui durante a disciplina de Boas Práticas.")
-    print("Futuramente teremos busca, comparação e testes.")
+    caixa(
+        "CATÁLOGO INTERATIVO DE AVES",
+        [
+            f"Total de aves carregadas: {len(aves)}",
+            "Explore detalhes, comparação, batalha, imagens e sons.",
+        ],
+        Cor.CIANO,
+    )
+
+    if TOCAR_SOM_NA_ABERTURA:
+        ave_som = escolher_ave_com_som(aves)
+
+        if ave_som is not None:
+            print()
+            print(
+                colorir(
+                    f"Som de abertura: {ave_som.get('nome_popular')}",
+                    Cor.CINZA,
+                )
+            )
+
+            tocar_som(
+                ave_som,
+                duracao_segundos=3,
+                mostrar_mensagem=False,
+            )
+
+
+def exibir_menu_principal():
+    """Exibe todas as opções da versão final da AveDex."""
+
+    caixa(
+        "MENU PRINCIPAL",
+        OPCOES_MENU,
+        Cor.AZUL,
+    )

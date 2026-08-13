@@ -1,5 +1,8 @@
-from src.avedex.interface import exibir_titulo
-from src.avedex.utils import valor_ou_indisponivel, mensagem_aviso
+from src.avedex.utils import (
+    valor_ou_indisponivel,
+    mensagem_aviso,
+    titulo,
+)
 
 
 ATRIBUTOS_BATALHA = [
@@ -40,7 +43,7 @@ def escolher_atributo():
 
 
 def batalha_avedex(aves, escolher_ave):
-    exibir_titulo("BATALHA AVEDEX")
+    titulo("BATALHA AVEDEX")
 
     ave_1 = escolher_ave(
         aves,

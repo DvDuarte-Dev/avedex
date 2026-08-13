@@ -1,9 +1,15 @@
-from src.avedex.interface import exibir_linha, exibir_titulo
-from src.avedex.utils import valor_ou_indisponivel, cortar_texto
+from src.avedex.utils import (
+    valor_ou_indisponivel,
+    cortar_texto,
+    titulo,
+    linha,
+)
 from src.avedex.catalogo import escolher_ave
+
 
 LARGURA_COLUNA = 25
 TAMANHO_SEPARADOR = 75
+
 
 CAMPOS_COMPARACAO = [
     ("Nome científico", "nome_cientifico", ""),
@@ -16,16 +22,24 @@ CAMPOS_COMPARACAO = [
     ("Status", "status_conservacao", ""),
 ]
 
+
 def preparar_valor_comparacao(ave, campo, unidade):
     valor = ave.get(campo)
 
     if campo == "habitat":
         return cortar_texto(valor, 25)
 
-    return valor_ou_indisponivel(valor, unidade)
+    return valor_ou_indisponivel(
+        valor,
+        unidade
+    )
 
 
-def imprimir_linha_comparacao(rotulo, valor1, valor2):
+def imprimir_linha_comparacao(
+    rotulo,
+    valor1,
+    valor2
+):
     valor1 = valor_ou_indisponivel(valor1)
     valor2 = valor_ou_indisponivel(valor2)
 
@@ -35,8 +49,9 @@ def imprimir_linha_comparacao(rotulo, valor1, valor2):
         f"{str(valor2):<{LARGURA_COLUNA}}"
     )
 
+
 def comparar_aves(ave1, ave2):
-    exibir_titulo("COMPARAÇÃO DE AVES")
+    titulo("COMPARAÇÃO DE AVES")
 
     print(
         f"{'Característica':<{LARGURA_COLUNA}}"
@@ -44,11 +59,20 @@ def comparar_aves(ave1, ave2):
         f"{ave2['nome_popular']:<{LARGURA_COLUNA}}"
     )
 
-    print("-" * TAMANHO_SEPARADOR)
+    print(linha("-", TAMANHO_SEPARADOR))
 
     for rotulo, campo, unidade in CAMPOS_COMPARACAO:
-        valor1 = preparar_valor_comparacao(ave1, campo, unidade)
-        valor2 = preparar_valor_comparacao(ave2, campo, unidade)
+        valor1 = preparar_valor_comparacao(
+            ave1,
+            campo,
+            unidade
+        )
+
+        valor2 = preparar_valor_comparacao(
+            ave2,
+            campo,
+            unidade
+        )
 
         imprimir_linha_comparacao(
             rotulo,
@@ -57,7 +81,7 @@ def comparar_aves(ave1, ave2):
         )
 
     print()
-    exibir_linha()
+    print(linha("-", TAMANHO_SEPARADOR))
 
     if ave1["peso_g"] > ave2["peso_g"]:
         print(
@@ -72,10 +96,13 @@ def comparar_aves(ave1, ave2):
         )
 
     else:
-        print("As duas aves possuem o mesmo peso.")
+        print(
+            "As duas aves possuem o mesmo peso."
+        )
+
 
 def tela_comparacao(catalogo):
-    exibir_titulo("COMPARAÇÃO DE AVES")
+    titulo("COMPARAÇÃO DE AVES")
 
     ave1 = escolher_ave(
         catalogo,
@@ -94,7 +121,12 @@ def tela_comparacao(catalogo):
         return
 
     if ave1["id"] == ave2["id"]:
-        print("Escolha duas aves diferentes.")
+        print(
+            "Escolha duas aves diferentes."
+        )
         return
 
-    comparar_aves(ave1, ave2)
+    comparar_aves(
+        ave1,
+        ave2
+    )

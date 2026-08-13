@@ -7,21 +7,20 @@ from src.avedex.dados import (
 )
 
 from src.avedex.interface import (
-    exibir_linha,
-    exibir_menu,
-    mostrar_boas_vindas,
-    mostrar_sobre,
+    abertura,
+    exibir_menu_principal,
+)
+
+from src.avedex.utils import (
+    limpar_tela,
+    mensagem_aviso,
     pausar,
 )
 
 from src.avedex.catalogo import (
     listar_aves,
-    buscar_ave_por_id,
     buscar_aves,
-    exibir_resultados_busca,
-    selecionar_resultado_busca,
     tela_busca,
-    exibir_detalhes_ave,
     selecionar_ave_por_id,
     escolher_ave,
     mostrar_ave_aleatoria,
@@ -35,6 +34,7 @@ from src.avedex.multimidia import (
     visualizar_imagem,
     tocar_som,
 )
+
 
 def selecionar_e_visualizar_imagem(catalogo):
     ave = escolher_ave(
@@ -55,48 +55,56 @@ def selecionar_e_tocar_som(catalogo):
     if ave is not None:
         tocar_som(ave)
 
+
 def processar_opcao(opcao, catalogo):
     if opcao == "1":
         listar_aves(catalogo)
+        pausar()
 
     elif opcao == "2":
         tela_busca(catalogo)
+        pausar()
 
     elif opcao == "3":
         mostrar_ave_aleatoria(catalogo)
+        pausar()
 
     elif opcao == "4":
         selecionar_ave_por_id(catalogo)
+        pausar()
 
     elif opcao == "5":
         tela_comparacao(catalogo)
+        pausar()
 
     elif opcao == "6":
-        batalha_avedex(
-            catalogo,
-            escolher_ave
-        )
+        batalha_avedex(catalogo)
+        pausar()
 
     elif opcao == "7":
         selecionar_e_visualizar_imagem(catalogo)
+        pausar()
 
     elif opcao == "8":
         selecionar_e_tocar_som(catalogo)
+        pausar()
 
     elif opcao == "9":
         verificar_ambiente()
+        pausar()
 
     elif opcao == "10":
         mostrar_creditos()
+        pausar()
 
     elif opcao == "0":
-        print("Encerrando a AveDex.")
+        limpar_tela()
+        print("Obrigado por usar a AveDex!")
 
     else:
-        print(
-            "Opção inválida. "
-            "Digite 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ou 10."
-        )
+        mensagem_aviso("Opção inválida.")
+        pausar()
+
 
 def executar():
     catalogo_aves = carregar_aves()
@@ -104,39 +112,34 @@ def executar():
     problemas = validar_dataset(catalogo_aves)
 
     if problemas:
-        print("[AVISO] O dataset possui problemas:")
+        mensagem_aviso(
+            "O dataset possui problemas:"
+        )
 
         for problema in problemas:
             print(f"- {problema}")
-    
-    exibir_linha()
-    print("AVEDEX")
-    exibir_linha()
 
-    nome_usuario = input(
-        "Digite seu nome: "
-    ).strip()
+        pausar()
 
-    mostrar_boas_vindas(nome_usuario)
+    if not catalogo_aves:
+        mensagem_aviso(
+            "Nenhuma ave foi carregada."
+        )
+        return
 
-    opcao_menu = ""
+    abertura(catalogo_aves)
 
-    while opcao_menu != "0":
-        exibir_menu()
+    while True:
+        exibir_menu_principal()
 
-        opcao_menu = input(
+        opcao = input(
             "Escolha uma opção: "
         ).strip()
 
-        print()
-
         processar_opcao(
-            opcao_menu,
+            opcao,
             catalogo_aves
         )
 
-        if opcao_menu == "0":
-            print(f"Até logo, {nome_usuario}!")
-
-        if opcao_menu != "0":
-            pausar()
+        if opcao == "0":
+            break
