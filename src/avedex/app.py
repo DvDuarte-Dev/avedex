@@ -29,6 +29,8 @@ from src.avedex.catalogo import (
 
 from src.avedex.comparacao import tela_comparacao
 
+from src.avedex.batalha import batalha_avedex
+
 def processar_opcao(opcao, catalogo):
     if opcao == "1":
         listar_aves(catalogo)
@@ -46,9 +48,15 @@ def processar_opcao(opcao, catalogo):
         tela_comparacao(catalogo)
 
     elif opcao == "6":
-        verificar_ambiente()
+        batalha_avedex(
+            catalogo,
+            escolher_ave
+        )
 
     elif opcao == "7":
+        verificar_ambiente()
+
+    elif opcao == "8":
         mostrar_creditos()
 
     elif opcao == "0":
@@ -57,7 +65,7 @@ def processar_opcao(opcao, catalogo):
     else:
         print(
             "Opção inválida. "
-            "Digite apenas 0, 1, 2, 3, 4, 5, 6 ou 7."
+            "Digite 0, 1, 2, 3, 4, 5, 6, 7 ou 8."
         )
 
 def executar():

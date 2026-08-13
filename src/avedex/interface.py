@@ -1,11 +1,12 @@
 OPCOES_MENU = [
     "1 - Listar aves",
     "2 - Buscar ave",
-    "3 - Ver detalhes de uma ave",
-    "4 - Comparar aves",
-    "5 - Sobre",
-    "6 - Verificar ambiente",
-    "7 - Créditos e fontes",
+    "3 - Ave aleatória",
+    "4 - Ver detalhes de uma ave",
+    "5 - Comparar duas aves",
+    "6 - Batalha AveDex",
+    "7 - Verificar ambiente",
+    "8 - Créditos e fontes",
     "0 - Sair",
 ]
 
