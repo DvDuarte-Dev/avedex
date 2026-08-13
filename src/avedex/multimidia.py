@@ -1,3 +1,5 @@
+import time
+
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -101,7 +103,7 @@ def baixar_arquivo(url, caminho_destino):
         )
         return False
 
-def obter_midia(ave, tipo):
+def obter_arquivo_midia(ave, tipo):
     url = obter_url_midia(ave, tipo)
 
     if not url:
@@ -128,3 +130,103 @@ def obter_midia(ave, tipo):
         return None
 
     return caminho_cache
+
+def visualizar_imagem(ave):
+    caminho = obter_arquivo_midia(
+        ave,
+        "imagem"
+    )
+
+    if caminho is None:
+        return
+
+    try:
+        from term_image.image import from_file
+    except ImportError:
+        mensagem_aviso(
+            "A biblioteca term-image não está instalada."
+        )
+        mensagem_aviso(
+            f"A imagem foi salva em: {caminho}"
+        )
+        return
+
+    try:
+        imagem = from_file(
+            str(caminho)
+        )
+
+        print(imagem)
+
+    except Exception as erro:
+        mensagem_aviso(
+            "O terminal não conseguiu exibir a imagem."
+        )
+
+        mensagem_aviso(
+            f"Abra o arquivo manualmente: {caminho}"
+        )
+
+        mensagem_aviso(str(erro))
+
+def tocar_som(
+    ave,
+    duracao_segundos=None,
+    mostrar_mensagem=True
+):
+    if mostrar_mensagem:
+        print("\nSOM DA AVE")
+        print("=" * 50)
+
+    caminho = obter_arquivo_midia(
+        ave,
+        "som"
+    )
+
+    if caminho is None:
+        return
+
+    try:
+        import pygame
+    except ImportError:
+        mensagem_aviso(
+            "A biblioteca pygame não está instalada."
+        )
+        mensagem_aviso(
+            f"O som foi salvo em: {caminho}"
+        )
+        return
+
+    try:
+        pygame.mixer.init()
+
+        pygame.mixer.music.load(
+            str(caminho)
+        )
+
+        pygame.mixer.music.play()
+
+        if mostrar_mensagem:
+            print(
+                f"Reproduzindo o som de "
+                f"{ave.get('nome_popular', 'ave')}."
+            )
+
+        inicio = time.monotonic()
+
+        while pygame.mixer.music.get_busy():
+            if (
+                duracao_segundos is not None
+                and time.monotonic() - inicio
+                >= duracao_segundos
+            ):
+                pygame.mixer.music.stop()
+                break
+
+            time.sleep(0.1)
+
+    except Exception as erro:
+        mensagem_aviso(
+            "Não foi possível reproduzir o som."
+        )
+        mensagem_aviso(str(erro))
