@@ -1,3 +1,5 @@
+import random
+
 from src.avedex.interface import exibir_titulo
 from src.avedex.utils import (
     normalizar_texto,
@@ -10,6 +12,24 @@ def listar_aves(catalogo):
         catalogo,
         "AVES CADASTRADAS"
     )
+
+def mostrar_ave_aleatoria(catalogo):
+    if not catalogo:
+        mensagem_aviso(
+            "Nenhuma ave disponível para sorteio."
+        )
+        return
+
+    ave = random.choice(catalogo)
+
+    exibir_titulo("AVE ALEATÓRIA")
+
+    print(
+        f"Ave sorteada: "
+        f"{ave.get('nome_popular', 'Ave')}"
+    )
+
+    exibir_detalhes_ave(ave)
 
 def ler_comando_paginacao():
     print()

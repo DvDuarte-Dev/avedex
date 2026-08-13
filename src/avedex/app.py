@@ -16,8 +16,15 @@ from src.avedex.interface import (
 
 from src.avedex.catalogo import (
     listar_aves,
+    buscar_ave_por_id,
+    buscar_aves,
+    exibir_resultados_busca,
+    selecionar_resultado_busca,
     tela_busca,
+    exibir_detalhes_ave,
     selecionar_ave_por_id,
+    escolher_ave,
+    mostrar_ave_aleatoria,
 )
 
 from src.avedex.comparacao import tela_comparacao
@@ -30,13 +37,13 @@ def processar_opcao(opcao, catalogo):
         tela_busca(catalogo)
 
     elif opcao == "3":
-        selecionar_ave_por_id(catalogo)
+        mostrar_ave_aleatoria(catalogo)
 
     elif opcao == "4":
-        tela_comparacao(catalogo)
+        selecionar_ave_por_id(catalogo)
 
     elif opcao == "5":
-        mostrar_sobre()
+        tela_comparacao(catalogo)
 
     elif opcao == "6":
         verificar_ambiente()
@@ -50,7 +57,7 @@ def processar_opcao(opcao, catalogo):
     else:
         print(
             "Opção inválida. "
-            "Digite apenas 0, 1, 2, 3, 4 ou 5."
+            "Digite apenas 0, 1, 2, 3, 4, 5, 6 ou 7."
         )
 
 def executar():
