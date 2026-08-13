@@ -46,3 +46,6 @@ def mensagem_aviso(texto):
 def mensagem_erro(texto):
     # Mostra uma mensagem de erro.
     print(f"[ERRO] {texto}")
+
+def pausar():
+    input("\nPressione ENTER para continuar...")

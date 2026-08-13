@@ -1,12 +1,104 @@
 from src.avedex.interface import exibir_titulo
-from src.avedex.utils import normalizar_texto
-from src.avedex.utils import mensagem_aviso
+from src.avedex.utils import (
+    normalizar_texto,
+    mensagem_aviso,
+    pausar,
+)
 
 def listar_aves(catalogo):
-    exibir_titulo("AVES CADASTRADAS")
+    return paginar_aves(
+        catalogo,
+        "AVES CADASTRADAS"
+    )
 
-    for ave in catalogo:
-        print(f"{ave['id']} - {ave['nome_popular']}")
+def ler_comando_paginacao():
+    print()
+    print("ENTER - próxima página")
+    print("p - página anterior")
+    print("q - sair")
+    print("ID - escolher uma ave")
+
+    return input("Comando: ").strip().lower()
+
+
+def paginar_aves(aves, titulo_lista="AVES", tamanho_pagina=10):
+    if not aves:
+        mensagem_aviso("Nenhuma ave disponível.")
+        return None
+
+    pagina = 0
+
+    while True:
+        total = len(aves)
+
+        inicio = pagina * tamanho_pagina
+        fim = inicio + tamanho_pagina
+
+        aves_pagina = aves[inicio:fim]
+
+        total_paginas = (
+            total + tamanho_pagina - 1
+        ) // tamanho_pagina
+
+        exibir_titulo(
+            f"{titulo_lista} - página "
+            f"{pagina + 1} de {total_paginas}"
+        )
+
+        for ave in aves_pagina:
+            identificador = ave.get("id", "-")
+            nome = ave.get(
+                "nome_popular",
+                "Nome não informado"
+            )
+            familia = ave.get("familia", "-")
+
+            print(
+                f"{str(identificador):>3} - "
+                f"{nome} ({familia})"
+            )
+
+        print()
+
+        print(
+            f"Mostrando {inicio + 1} a "
+            f"{min(fim, total)} de {total} aves."
+        )
+
+        comando = ler_comando_paginacao()
+
+        if comando == "":
+            if fim < total:
+                pagina += 1
+            else:
+                mensagem_aviso(
+                    "Você já está na última página."
+                )
+                pausar()
+
+        elif comando == "p":
+            if pagina > 0:
+                pagina -= 1
+            else:
+                mensagem_aviso(
+                    "Você já está na primeira página."
+                )
+                pausar()
+
+        elif comando == "q":
+            return None
+
+        elif comando.isdigit():
+            for ave in aves:
+                if str(ave.get("id")) == comando:
+                    return ave
+
+            mensagem_aviso("ID não encontrado.")
+            pausar()
+
+        else:
+            mensagem_aviso("Comando inválido.")
+            pausar()
 
 def ler_id_ave(mensagem):
     while True:
@@ -108,22 +200,9 @@ def exibir_detalhes_ave(ave):
     )
 
 def selecionar_ave_por_id(catalogo):
-    listar_aves(catalogo)
+    ave_encontrada = listar_aves(catalogo)
 
-    id_escolhido = ler_id_ave(
-        "\nDigite o ID da ave: "
-    )
-
-    ave_encontrada = buscar_ave_por_id(
-        catalogo,
-        id_escolhido
-    )
-
-    if ave_encontrada is None:
-        mensagem_aviso(
-            "Ave não encontrada. Confira o ID informado."
-        )
-    else:
+    if ave_encontrada is not None:
         exibir_detalhes_ave(ave_encontrada)
 
 def escolher_ave(catalogo, mensagem):
